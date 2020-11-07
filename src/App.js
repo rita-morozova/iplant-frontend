@@ -5,6 +5,7 @@ import PlantsContainer from './Containers/PlantsContainer'
 import FavoritesContainer from './Containers/FavoritesContainer'
 import Cart from './Components/Cart'
 import Navbar from './Components/Navbar'
+import MainContainer from './Containers/MainContainer'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 class App extends React.Component {
@@ -16,7 +17,7 @@ class App extends React.Component {
       <Router>
         <Navbar />
         <div>
-          <Route exact path='/' component={PlantsContainer} />
+          <Route exact path='/' component={MainContainer} />
           <Route exact path='/all-plants' component={PlantsContainer} />
           <Route exact path='/my-picks' component={FavoritesContainer} />
           <Route exact path='/my-cart' component={Cart} />

@@ -1,22 +1,21 @@
 import React from 'react'
-// import PlantCard from './Components/PlantCard'
+import PlantCard from '../Components/PlantCard'
+import {Card} from 'semantic-ui-react'
 
 
 class PlantsContainer extends React.Component{
 
+  
+
   render(){
+   const{plants} = this.props
     return(
       <div>
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
-        ALL PLANTS CARDS HERE
+         <Card.Group itemsPerRow={2}>
+        {plants.map(plant => (
+          <PlantCard  key={plant.id} plant={plant}/>
+        ))}
+         </Card.Group>
       </div>
     )
   }

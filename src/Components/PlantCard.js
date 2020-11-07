@@ -1,11 +1,22 @@
 import React from 'react'
+import {Card} from 'semantic-ui-react'
 
-const PlantCard = () => {
+const PlantCard = ({plant}) => {
+
+  const price= plant.price.toFixed(2)
 
   return(
-    <div>
-      I am plant
+    <Card>
+      <div>
+        <div className="image">
+           <img src={plant.image} />
+        </div>
+        <div className="content">
+           <h2>{plant.name}</h2>
+            <h3>${price}</h3>
+        </div>
     </div>
+    </Card>
   )
 }
 
