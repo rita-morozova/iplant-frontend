@@ -43,27 +43,28 @@ class MainContainer extends React.Component {
     })
   }
 
-  // handleSearch = e => {
-  //   this.setState({
-  //     searchTerm: e.target.value
-  //   })
-  // }
+  handleSearch = e => {
+    this.setState({
+      searchTerm: e.target.value
+    })
+  }
 
 
   render(){
-    const{plants, chosenPlant, filter} = this.state
-    const searchedPlant =plants.filter(plant => plant.name.includes(this.state.searchTerm))
-    
+    const{plants, chosenPlant, filter, searchTerm} = this.state
+    const searchPlant =plants.filter(plant => plant.name.toLowerCase().includes(searchTerm))
+ 
     return(
       <div>
         <Container>
           <br />
           <h2>Hello! Welcome to our store! Bla bla bla bla</h2>
-          {/* <SearchBar onChange={this.handleSearch} /> */}
+          <SearchBar onChange={this.handleSearch} />
+          <br />
           <Filter selectFilter={this.selectFilter} />
           <br />
           {!chosenPlant ?
-          <PlantsContainer plants={plants} selectPlant={this.selectPlant} filter={filter} /> :
+          <PlantsContainer plants={searchPlant} selectPlant={this.selectPlant} filter={filter} /> :
           <PlantDetails chosenPlant={chosenPlant} goBackToAllPlants={this.goBackToAllPlants}  /> 
           }
         </Container>

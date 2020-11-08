@@ -1,14 +1,14 @@
-// import React from 'react'
+import React from 'react'
 
-// const SearchBar = props => {
-//   return (
-//     <div className="ui search">
-//       <div className="ui icon input">
-//         <input className="prompt" onChange={props.onChange} />
-//         <i className="search icon" />
-//       </div>
-//     </div>
-//   )
-// }
+const SearchBar = ({onChange}) => {
+  return (
+    <div className="ui search">
+      <div className="ui icon input">
+        <input className="prompt" onChange={onChange} />
+        <i className="search icon" />
+      </div>
+    </div>
+  )
+}
 
-// export default SearchBar
+export default SearchBar

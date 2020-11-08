@@ -2,10 +2,6 @@ import React from 'react'
 
 const Filter = ({selectFilter}) => {
 
-  // const handleFilter = e => {
-  //   selectFilter(e.target.value)
-  // }
-
   return(
     <div>
      <select onChange={(e) =>selectFilter(e.target.value)}>
