@@ -8,12 +8,13 @@ class PlantsContainer extends React.Component{
   
 
   render(){
-   const{plants} = this.props
+   const{plants, selectPlant} = this.props
+ 
     return(
       <div>
          <Card.Group itemsPerRow={2}>
         {plants.map(plant => (
-          <PlantCard  key={plant.id} plant={plant}/>
+          <PlantCard  key={plant.id} plant={plant} selectPlant={selectPlant} />
         ))}
          </Card.Group>
       </div>

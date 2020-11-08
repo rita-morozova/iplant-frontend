@@ -1,12 +1,17 @@
 import React from 'react'
 import {Card} from 'semantic-ui-react'
 
-const PlantCard = ({plant}) => {
+const PlantCard = ({plant, selectPlant}) => {
+
 
   const price= plant.price.toFixed(2)
 
+  const handleClick = () => {
+    selectPlant(plant.id)
+  }
+
   return(
-    <Card>
+    <Card onClick={handleClick} >
       <div>
         <div className="image">
            <img src={plant.image} />
