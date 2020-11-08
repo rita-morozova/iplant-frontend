@@ -2,13 +2,17 @@ import React from 'react'
 import PlantsContainer from './PlantsContainer'
 import PlantDetails from '../Components/PlantDetails'
 import {Container} from 'semantic-ui-react'
+import SearchBar from '../Components/SearchBar'
+import Filter from '../Components/Filter'
 
 
 class MainContainer extends React.Component {
 
   state = {
     plants: [],
-    chosenPlant: null
+    chosenPlant: null,
+    searchTerm: '',
+    filter: 'none'
   }
 
   componentDidMount(){
@@ -33,18 +37,34 @@ class MainContainer extends React.Component {
     })
   }
 
+  selectFilter = filter => {
+    this.setState({
+      filter
+    })
+  }
+
+  // handleSearch = e => {
+  //   this.setState({
+  //     searchTerm: e.target.value
+  //   })
+  // }
+
 
   render(){
-    const{plants, chosenPlant} = this.state
+    const{plants, chosenPlant, filter} = this.state
+    const searchedPlant =plants.filter(plant => plant.name.includes(this.state.searchTerm))
     
     return(
       <div>
         <Container>
           <br />
           <h2>Hello! Welcome to our store! Bla bla bla bla</h2>
+          {/* <SearchBar onChange={this.handleSearch} /> */}
+          <Filter selectFilter={this.selectFilter} />
+          <br />
           {!chosenPlant ?
-          <PlantsContainer plants={plants} selectPlant={this.selectPlant} /> :
-          <PlantDetails chosenPlant={chosenPlant} goBackToAllPlants={this.goBackToAllPlants} /> 
+          <PlantsContainer plants={plants} selectPlant={this.selectPlant} filter={filter} /> :
+          <PlantDetails chosenPlant={chosenPlant} goBackToAllPlants={this.goBackToAllPlants}  /> 
           }
         </Container>
       </div>

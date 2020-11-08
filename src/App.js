@@ -7,24 +7,30 @@ import Cart from './Components/Cart'
 import Navbar from './Components/Navbar'
 import MainContainer from './Containers/MainContainer'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import NotFound from './Components/NotFound'
 
 
 class App extends React.Component {
 
-  render(){
-  return (
-    <div className="App">
+  
 
-      
+  render(){
+
+
+  return (
+    <div className="App">      
       <Header />
       <br />
       <Router>
-        <Navbar />
+        <Navbar />   
         <div>
+          <Switch>
           <Route exact path='/' component={MainContainer} />
           <Route exact path='/all-plants' component={MainContainer} />
           <Route exact path='/my-picks' component={FavoritesContainer} />
           <Route exact path='/my-cart' component={Cart} />
+          <Route component={NotFound} />
+          </Switch>
         </div>
       </Router>
    

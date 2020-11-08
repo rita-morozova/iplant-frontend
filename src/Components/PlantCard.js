@@ -14,7 +14,7 @@ const PlantCard = ({plant, selectPlant}) => {
     <Card onClick={handleClick} >
       <div>
         <div className="image">
-           <img src={plant.image} />
+           <img src={plant.image} alt="Flower" />
         </div>
         <div className="content">
            <h2>{plant.name}</h2>

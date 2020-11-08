@@ -5,15 +5,36 @@ import {Card} from 'semantic-ui-react'
 
 class PlantsContainer extends React.Component{
 
-  
 
   render(){
-   const{plants, selectPlant} = this.props
+   const{plants, selectPlant, filter} = this.props
+
+   const filterPlants = () => {
+    if(filter === 'none'){
+      return plants
+    }
+
+    if(filter === 'beginners'){
+      return plants.filter(p => p.easyToCare === true)
+    }
+
+    if(filter==='bloomingPlants'){
+      return plants.filter(p => p.blooming === true)
+    }
+
+    if(filter==='lowLight'){
+      return plants.filter(p => p.lowLight === true)
+    }
+
+    if(filter==='brightLight'){
+      return plants.filter(p => p.brightLight === true)
+    }
+  }
  
     return(
       <div>
          <Card.Group itemsPerRow={2}>
-        {plants.map(plant => (
+        {filterPlants().map(plant => (
           <PlantCard  key={plant.id} plant={plant} selectPlant={selectPlant} />
         ))}
          </Card.Group>
