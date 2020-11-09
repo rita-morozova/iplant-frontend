@@ -2,14 +2,14 @@ import React from 'react'
 import {Card, Icon} from 'semantic-ui-react'
 
 
-const PlantDetails= ({chosenPlant, goBackToAllPlants, cart}) => {
+const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addFavorite}) => {
 
   const price= chosenPlant.price.toFixed(2)
 
   const extra = (
-    <a href='/my-picks'>
+    <div onClick={() => addFavorite(chosenPlant)}>
       <Icon name='favorite' />
-    </a>
+    </div>
   )
 
   //POST REQUEST HERE
