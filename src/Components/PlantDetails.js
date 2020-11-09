@@ -2,7 +2,7 @@ import React from 'react'
 import {Card, Icon} from 'semantic-ui-react'
 
 
-const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addFavorite}) => {
+const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavorite}) => {
 
   const price= chosenPlant.price.toFixed(2)
 
@@ -13,10 +13,10 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addFavorite}) => {
   )
 
   //POST REQUEST HERE
-  const addToCart =  chosenPlant=> {
-    console.log(cart)
-    let newCart = cart.push([chosenPlant])
-  }
+  // const addToCart = chosenPlant => {
+  //   console.log(chosenPlant)
+  //  cart.push([chosenPlant[0]])
+  // }
 
 
 
@@ -32,7 +32,7 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addFavorite}) => {
             <h4>{chosenPlant.easyToCare ? "Low Maintenance" : "High Maintenance"}</h4>
             <h4>{chosenPlant.lowLight ? "Low Light" : "Bright Light"}</h4>
             <h3>${price}</h3>
-            <button onClick={addToCart}>Add To Cart</button>
+            <button onClick={() => addToCart(chosenPlant)}>Add To Cart</button>
             <br />
             <br />
             <button onClick={goBackToAllPlants}>Back To All Plants</button>

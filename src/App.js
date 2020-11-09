@@ -28,13 +28,13 @@ class App extends React.Component {
     })
   }
 
-  // addToCart = id => {
-  //   if(!this.state.cart.includes(id)){
-  //     this.setState((prevState) =>({
-  //       cart: [...prevState.cart, id]
-  //     }))
-  //   }
-  // }
+  addToCart = id => {
+    if(!this.state.cart.includes(id)){
+      this.setState((prevState) =>({
+        cart: [...prevState.cart, id]
+      }))
+    }
+  }
 
   // removeFromCart = id => {
   //   this.setState({
@@ -78,7 +78,7 @@ class App extends React.Component {
                   <div>
                     <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/all-plants' component={() => <MainContainer cart={cart} addFavorite={this.addFavorite}/>} />
+                    <Route exact path='/all-plants' component={() => <MainContainer cart={cart} addFavorite={this.addFavorite} addToCart={this.addToCart} />} />
                     <Route exact path='/all-plants/:id' component={PlantDetails} />
                     <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites}/>} />
                     <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart} />} />
