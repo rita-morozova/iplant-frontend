@@ -1,11 +1,17 @@
 import React from 'react'
-import {Card} from 'semantic-ui-react'
+import {Card, Icon} from 'semantic-ui-react'
 
 
 const PlantDetails= ({chosenPlant, goBackToAllPlants}) => {
 
   const price= chosenPlant.price.toFixed(2)
- 
+
+  const extra = (
+    <a href='/my-picks'>
+      <Icon name='favorite' />
+    </a>
+  )
+
 
   return(
     <Card>
@@ -21,7 +27,13 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants}) => {
             <h3>${price}</h3>
             <button>Add To Cart</button>
             <br />
+            <br />
             <button onClick={goBackToAllPlants}>Back To All Plants</button>
+            <br />
+            <br />
+            <div className="extra">
+            {extra}
+        </div>
         </div>
     </div>
     </Card>

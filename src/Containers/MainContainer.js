@@ -4,6 +4,7 @@ import PlantDetails from '../Components/PlantDetails'
 import {Container} from 'semantic-ui-react'
 import SearchBar from '../Components/SearchBar'
 import Filter from '../Components/Filter'
+import FavoritesContainer from './FavoritesContainer'
 
 
 class MainContainer extends React.Component {
@@ -12,7 +13,7 @@ class MainContainer extends React.Component {
     plants: [],
     chosenPlant: null,
     searchTerm: '',
-    filter: 'none'
+    filter: 'none',
   }
 
   componentDidMount(){
@@ -50,10 +51,11 @@ class MainContainer extends React.Component {
   }
 
 
+
   render(){
     const{plants, chosenPlant, filter, searchTerm} = this.state
-    const searchPlant =plants.filter(plant => plant.name.toLowerCase().includes(searchTerm))
- 
+    const searchPlant =plants.filter(plant => plant.name.toLowerCase().includes(searchTerm.toLowerCase()))
+   
     return(
       <div>
         <Container>
