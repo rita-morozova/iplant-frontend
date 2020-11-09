@@ -23,7 +23,8 @@ class App extends React.Component {
     fetch('https://iplant-backend.herokuapp.com/users/1')
     .then(resp => resp.json())
     .then(userData => {
-      this.setState({cart: userData.transactions, favorites: userData.favorites})
+      const favoritePlants = userData.favorites.map(favorite => favorite.plant)
+      this.setState({cart: userData.transactions, favorites: favoritePlants})
     })
   }
 
@@ -58,9 +59,8 @@ class App extends React.Component {
     })
     .then(resp => resp.json())
     .then(favorite => {
-      debugger
       this.setState(prevState => {
-        return {favorites: [...prevState.favorites, favorite]}
+        return {favorites: [...prevState.favorites, plant]}
       })
     })
   }
