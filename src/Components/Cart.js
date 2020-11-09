@@ -1,6 +1,7 @@
 import React from 'react'
 import PlantCard from './PlantCard'
 
+
 class Cart extends React.Component {
 
 //GET REQUEST HERE TO SHOW ALL ADDED ITEMS
@@ -15,13 +16,17 @@ class Cart extends React.Component {
   // }
 
   render(){
-    console.log(this.props)
+    const {cart} = this.props
+    console.log(cart)
     return(
       <div>
         <br />
         <h2> Your Cart</h2>
         <div>
-          {this.props.cart.map(plant => <PlantCard  key={plant.id} />)}
+          {cart.map(plant => <PlantCard key={plant.id} plant={plant} /> )}
+
+          {/* <div>{plant.name} {plant.price.toFixed(2)} */}
+
         </div>
       </div>
     )

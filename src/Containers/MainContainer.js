@@ -67,7 +67,7 @@ class MainContainer extends React.Component {
           <br />
           {!chosenPlant ?
           <PlantsContainer plants={searchPlant} selectPlant={this.selectPlant} filter={filter} /> :
-          <PlantDetails chosenPlant={chosenPlant} goBackToAllPlants={this.goBackToAllPlants} cart={this.props.cart} /> 
+          <PlantDetails chosenPlant={chosenPlant} goBackToAllPlants={this.goBackToAllPlants} cart={this.props.cart} addToCart={this.props.addToCart} /> 
           }
         </Container>
       </div>

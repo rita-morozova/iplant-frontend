@@ -2,6 +2,7 @@ import { render } from '@testing-library/react'
 import React from 'react'
 import {Card, Icon} from 'semantic-ui-react'
 
+
 class PlantCard extends React.Component {
 
   // state = {
@@ -60,6 +61,7 @@ class PlantCard extends React.Component {
               </div>
           </div>
           </Card>
+         
         )
     }
 }
