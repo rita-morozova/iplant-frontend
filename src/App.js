@@ -58,7 +58,6 @@ class App extends React.Component {
     })
     .then(resp => resp.json())
     .then(favorite => {
-      debugger
       this.setState(prevState => {
         return {favorites: [...prevState.favorites, favorite]}
       })
