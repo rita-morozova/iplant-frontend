@@ -16,6 +16,15 @@ class App extends React.Component {
 
   state = {
     cart: [],
+    favorites: []
+  }
+
+  componentDidMount(){
+    fetch('https://iplant-backend.herokuapp.com/users/1')
+    .then(resp => resp.json())
+    .then(userData => {
+      this.setState({cart: userData.transactions, favorites: userData.favorites})
+    })
   }
 
   addToCart = id => {
@@ -37,6 +46,24 @@ class App extends React.Component {
   //     cart: []
   //   })
   // }
+
+  addFavorite = (plant) => {
+    const newFavorite = { favorite: { plant_id: plant.id, user_id: 1}}
+    fetch('http://iplant-backend.herokuapp.com/favorites', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify(newFavorite)
+    })
+    .then(resp => resp.json())
+    .then(favorite => {
+      debugger
+      this.setState(prevState => {
+        return {favorites: [...prevState.favorites, favorite]}
+      })
+    })
+  }
   
 
   render(){
@@ -51,9 +78,9 @@ class App extends React.Component {
                   <div>
                     <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/all-plants' component={() => <MainContainer cart={cart} addToCart={this.addToCart}/>} />
+                    <Route exact path='/all-plants' component={() => <MainContainer cart={cart} addFavorite={this.addFavorite} addToCart={this.addToCart} />} />
                     <Route exact path='/all-plants/:id' component={PlantDetails} />
-                    <Route exact path='/my-picks' component={FavoritesContainer} />
+                    <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites}/>} />
                     <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart} />} />
                     <Route component={NotFound} />
                     </Switch>
