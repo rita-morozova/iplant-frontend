@@ -23,8 +23,7 @@ class App extends React.Component {
     fetch('https://iplant-backend.herokuapp.com/users/1')
     .then(resp => resp.json())
     .then(userData => {
-      const favoritePlants = userData.favorites.map(favorite => favorite.plant)
-      this.setState({cart: userData.transactions, favorites: favoritePlants})
+      this.setState({cart: userData.transactions, favorites: userData.favorites})
     })
   }
 
@@ -50,7 +49,7 @@ class App extends React.Component {
 
   addFavorite = (plant) => {
     const newFavorite = { favorite: { plant_id: plant.id, user_id: 1}}
-    fetch('http://iplant-backend.herokuapp.com/favorites', {
+    fetch('https://iplant-backend.herokuapp.com/favorites', {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
@@ -60,7 +59,23 @@ class App extends React.Component {
     .then(resp => resp.json())
     .then(favorite => {
       this.setState(prevState => {
-        return {favorites: [...prevState.favorites, plant]}
+        return {favorites: [...prevState.favorites, favorite]}
+      })
+    })
+  }
+
+  removeFavorite = (plant) => {
+    const foundFavorite = this.state.favorites.find(favorite => favorite.plant.id === plant.id)
+    fetch(`https://iplant-backend.herokuapp.com/favorites/${foundFavorite.id}`,{
+      method: 'DELETE',
+      headers: {
+        'Content-Type':'application/json'
+      }
+    })
+    .then(resp => resp.json())
+    .then(favorite => {
+      this.setState(prevState => {
+        return {favorites: prevState.favorites.filter(fav => fav.id !== foundFavorite.id)}
       })
     })
   }
@@ -80,7 +95,7 @@ class App extends React.Component {
                     <Route exact path='/' component={Home} />
                     <Route exact path='/all-plants' component={() => <MainContainer cart={cart} addFavorite={this.addFavorite} addToCart={this.addToCart} />} />
                     <Route exact path='/all-plants/:id' component={PlantDetails} />
-                    <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites}/>} />
+                    <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites.map(favorite => favorite.plant)} removeFavorite={this.removeFavorite}/>} />
                     <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart} />} />
                     <Route component={NotFound} />
                     </Switch>
