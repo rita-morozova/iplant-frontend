@@ -28,12 +28,29 @@ class App extends React.Component {
     })
   }
 
-  addToCart = id => {
-    if(!this.state.cart.includes(id)){
-      this.setState((prevState) =>({
-        cart: [...prevState.cart, id]
-      }))
-    }
+  // addToCart = id => {
+  //   if(!this.state.cart.includes(id)){
+  //     this.setState((prevState) =>({
+  //       cart: [...prevState.cart, id]
+  //     }))
+  //   }
+  // }
+
+  addToCart = plant => {
+    const newCart= {transaction: { plant_id: plant.id, user_id: 1}}
+    fetch('http://iplant-backend.herokuapp.com/transactions', {
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify(newCart)
+    })
+    .then(resp => resp.json())
+    .then(data=> {
+      this.setState(prevState => {
+        return {cart: [...prevState.cart, data]}
+      })
+    })
   }
 
   // removeFromCart = id => {

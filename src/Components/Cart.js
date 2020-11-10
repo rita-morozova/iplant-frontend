@@ -23,11 +23,13 @@ class Cart extends React.Component {
         <br />
         <h2> Your Cart</h2>
         <div>
-          {cart.map(plant => <PlantCard key={plant.id} plant={plant} /> )}
+          {cart.map(plant => <PlantCard key={plant.id} plant={plant.plant} /> )}
 
           {/* <div>{plant.name} {plant.price.toFixed(2)} */}
 
         </div>
+        <h2>Your total: </h2>
+        <button>Checkout</button>
       </div>
     )
   }

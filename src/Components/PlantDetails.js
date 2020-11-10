@@ -12,12 +12,11 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavori
     </div>
   )
 
-  //POST REQUEST HERE
+
   // const addToCart = chosenPlant => {
   //   console.log(chosenPlant)
   //  cart.push([chosenPlant[0]])
   // }
-
 
 
   return(

@@ -17,7 +17,7 @@ class PlantCard extends React.Component {
           <Card>
             <div>
               <div className="image" onClick={handleClick}>
-                <img src={plant.image} alt="Flower" />
+                <img src={plant.image} alt="Plant" />
               </div>
               <div className="content">
                 <h2>{plant.name}</h2>
