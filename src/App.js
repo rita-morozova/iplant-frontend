@@ -9,6 +9,7 @@ import Home from './Components/Home'
 import Header from './Components/Header'
 import PlantDetails from './Components/PlantDetails'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Checkout from './Components/Checkout'
 
 
 
@@ -60,7 +61,6 @@ class App extends React.Component {
     })
   }
   
-
   // clearCart = () => {
   //   this.setState({
   //     cart: []
@@ -117,6 +117,7 @@ class App extends React.Component {
                     <Route exact path='/all-plants/:id' component={PlantDetails} />
                     <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites.map(favorite => favorite.plant)} removeFavorite={this.removeFavorite}/>} />
                     <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart} />} />
+                    <Route exact path='/checkout' component={() => <Checkout cart={cart} />} />
                     <Route component={NotFound} />
                     </Switch>
                   </div>
