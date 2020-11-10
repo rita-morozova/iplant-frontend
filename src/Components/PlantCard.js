@@ -24,6 +24,7 @@ class PlantCard extends React.Component {
                   <h3>${price}</h3>
               </div>
               <br />
+              {this.props.removeFavorite ? <span onClick={() => this.props.removeFavorite(plant)}>Remove From Favorites</span> : null}
           </div>
           </Card>
          
