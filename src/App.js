@@ -27,14 +27,6 @@ class App extends React.Component {
     })
   }
 
-  // addToCart = id => {
-  //   if(!this.state.cart.includes(id)){
-  //     this.setState((prevState) =>({
-  //       cart: [...prevState.cart, id]
-  //     }))
-  //   }
-  // }
-
   addToCart = plant => {
     const newCart= {transaction: { plant_id: plant.id, user_id: 1}}
     fetch('http://iplant-backend.herokuapp.com/transactions', {
@@ -51,21 +43,6 @@ class App extends React.Component {
       })
     })
   }
-
-  
-
-
-  // removeFromCart= (id) =>{
-  //   fetch(`https://iplant-backend.herokuapp.com/transactions/${id}`, {
-  //     method: 'DELETE'
-  // })
-  //   .then(resp => resp.json())
-  //   .then(data => {
-  //     this.setState((prevState) => ({
-  //       cart: prevState.cart.filter((p) => p.id !== id)
-  //     }))
-  //   })
-  // }
 
   removeFromCart = plant => {
     const cartItem= this.state.cart.find(item => item.plant.id === plant.id)

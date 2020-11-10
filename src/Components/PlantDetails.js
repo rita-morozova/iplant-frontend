@@ -2,6 +2,7 @@ import React from 'react'
 import {Card, Icon} from 'semantic-ui-react'
 
 
+
 const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavorite}) => {
 
   const price= chosenPlant.price.toFixed(2)
