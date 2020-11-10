@@ -8,7 +8,7 @@ const NotFound = () => {
       <br />
       <h2>Sorry, This Page Is Not Found</h2>
       <br />
-      <img src={cat}/>
+      <img src={cat} alt='cat broke a flower pot' />
     </div>
     )}
 

@@ -52,11 +52,37 @@ class App extends React.Component {
     })
   }
 
-  // removeFromCart = id => {
-  //   this.setState({
-  //     cart: this.state.cart.filter(item => item !== id)
+  
+
+
+  // removeFromCart= (id) =>{
+  //   fetch(`https://iplant-backend.herokuapp.com/transactions/${id}`, {
+  //     method: 'DELETE'
+  // })
+  //   .then(resp => resp.json())
+  //   .then(data => {
+  //     this.setState((prevState) => ({
+  //       cart: prevState.cart.filter((p) => p.id !== id)
+  //     }))
   //   })
   // }
+
+  removeFromCart = plant => {
+    const cartItem= this.state.cart.find(item => item.plant.id === plant.id)
+    fetch(`https://iplant-backend.herokuapp.com/transactions/${cartItem.id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type':'application/json'
+      }
+    })
+    .then(resp => resp.json())
+    .then(item => {
+      this.setState(prevState => {
+        return {cart: prevState.cart.filter(item => item.id !== cartItem.id)}
+      })
+    })
+  }
+  
 
   // clearCart = () => {
   //   this.setState({

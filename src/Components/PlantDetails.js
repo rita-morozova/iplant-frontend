@@ -7,9 +7,9 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavori
   const price= chosenPlant.price.toFixed(2)
 
   const extra = (
-    <button onClick={() => addFavorite(chosenPlant)}>
-      <Icon color='red' name='heart outline' />
-    </button>
+    <div onClick={() => addFavorite(chosenPlant)}>
+      <Icon bordered color='red' name='heart outline'  />
+    </div>
   )
 
 
