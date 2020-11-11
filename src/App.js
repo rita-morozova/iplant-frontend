@@ -13,7 +13,7 @@ import Login from './Components/Login'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Checkout from './Components/Checkout'
 
-
+const URL = 'http://localhost:4000'
 
 class App extends React.Component {
 
@@ -33,7 +33,7 @@ class App extends React.Component {
 
   addToCart = plant => {
     const newCart= {transaction: { plant_id: plant.id, user_id: this.state.userid}}
-    fetch('http://localhost:4000/transactions', {
+    fetch(`${URL}/transactions`, {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
@@ -50,7 +50,7 @@ class App extends React.Component {
 
   removeFromCart = plant => {
     const cartItem= this.state.cart.find(item => item.plant.id === plant.id)
-    fetch(`http://localhost:4000/transactions/${cartItem.id}`, {
+    fetch(`${URL}/transactions/${cartItem.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type':'application/json'
@@ -73,7 +73,7 @@ class App extends React.Component {
 
   addFavorite = (plant) => {
     const newFavorite = { favorite: { plant_id: plant.id, user_id: this.state.userid}}
-    fetch('http://localhost:4000/favorites', {
+    fetch(`${URL}/favorites`, {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
@@ -90,7 +90,7 @@ class App extends React.Component {
 
   removeFavorite = (plant) => {
     const foundFavorite = this.state.favorites.find(favorite => favorite.plant.id === plant.id)
-    fetch(`http://localhost:4000/favorites/${foundFavorite.id}`,{
+    fetch(`${URL}/favorites/${foundFavorite.id}`,{
       method: 'DELETE',
       headers: {
         'Content-Type':'application/json'
@@ -105,7 +105,7 @@ class App extends React.Component {
   }
   
   handleSubmit = (data, route) => {
-    fetch(route, {
+    fetch(`${URL}${route}`, {
         method: 'POST',
         headers: {
             'Content-Type':'application/json'
@@ -135,6 +135,8 @@ class App extends React.Component {
                     <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites.map(favorite => favorite.plant)} removeFavorite={this.removeFavorite}/>} />
                     <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart}z />} />
                     <Route exact path='/checkout' component={() => <Checkout cart={cart} clearCart={this.clearCart} />} />
+                    <Route exact path='/signup' component={() => <Signup handleSubmit={this.handleSubmit}/>} />
+                    <Route exact path='/login' component={() => <Login handleSubmit={this.handleSubmit}/>} />
                     <Route component={NotFound} />
                     </Switch>
                   </div>

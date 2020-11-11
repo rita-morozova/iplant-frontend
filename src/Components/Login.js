@@ -12,7 +12,7 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.handleSubmit(this.state, 'http://localhost:4000/sessions')
+        this.props.handleSubmit(this.state, '/sessions')
     }
 
     render(){

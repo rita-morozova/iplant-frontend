@@ -14,7 +14,7 @@ class Signup extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.handleSubmit(this.state, 'http://localhost:4000/users')
+        this.props.handleSubmit(this.state, '/users')
     }
 
     render(){
