@@ -10,7 +10,7 @@ import Header from './Components/Header'
 import PlantDetails from './Components/PlantDetails'
 import Signup from './Components/Signup'
 import Login from './Components/Login'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import Checkout from './Components/Checkout'
 
 const URL = 'https://iplant-backend.herokuapp.com'
@@ -114,9 +114,15 @@ class App extends React.Component {
     })
     .then(resp => resp.json())
     .then(user => {
-      this.setState({userid: user.id, favorites: user.favorites, cart: user.transactions}, () => <Route exact path='/' component={Home} />)
+      this.setState({userid: user.id, favorites: user.favorites, cart: user.transactions})
       })
-}
+    .then(<Redirect to="/" push={true} />)
+  }
+
+  handleLogout = () => {
+    this.setState({userid: null, favorites: [], cart: []})
+    return <Redirect to="/" push={true} />
+  }
 
   render(){
       let {cart} = this.state
@@ -137,6 +143,7 @@ class App extends React.Component {
                     <Route exact path='/checkout' component={() => <Checkout cart={cart} clearCart={this.clearCart} />} />
                     <Route exact path='/signup' component={() => <Signup handleSubmit={this.handleSubmit}/>} />
                     <Route exact path='/login' component={() => <Login handleSubmit={this.handleSubmit}/>} />
+                    <Route exact path='/logout' component={() => this.handleLogout()} />
                     <Route component={NotFound} />
                     </Switch>
                   </div>
