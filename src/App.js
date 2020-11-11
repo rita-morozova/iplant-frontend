@@ -114,7 +114,9 @@ class App extends React.Component {
     })
     .then(resp => resp.json())
     .then(user => {
-      this.setState({userid: user.id, favorites: user.favorites, cart: user.transactions})
+      const favorites = user.favorites ? user.favorites : []
+      const transactions = user.transactions ? user.transactions : []
+      this.setState({userid: user.id, favorites: favorites, cart: transactions})
       })
     .then(<Redirect to="/" push={true} />)
   }
