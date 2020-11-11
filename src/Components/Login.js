@@ -17,13 +17,14 @@ class Login extends Component {
 
     render(){
         return(
-            <form onSubmit={(event) => this.handleSubmit(event)}>
+           <form onSubmit={(event) => this.handleSubmit(event)}>
                 <label htmlFor='email'>Email: </label>
                 <input type='text' name='email' value={this.state.email} onChange={this.handleChange}/><br />
                 <label htmlFor='password'>Password: </label>
                 <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/><br />
-                <input type='submit' />
+                <input type='submit' /> 
             </form>
+           
         )
     }
 }

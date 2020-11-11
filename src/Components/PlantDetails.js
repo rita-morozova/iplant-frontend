@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card, Icon} from 'semantic-ui-react'
-
+import PopUp from './PopUp'
 
 
 const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavorite}) => {

@@ -1,5 +1,7 @@
 import React from 'react'
 import CartTotal from './CartTotal'
+import { Button, Modal } from 'semantic-ui-react'
+import ModalPurchase from './ModalPurchase'
 
 class Checkout extends React.Component {
 
@@ -94,6 +96,24 @@ class Checkout extends React.Component {
   //  POST method, not required in this projects
   // }
 
+  purchased = () => {
+    this.setState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      country: '',
+      state: '',
+      city: '',
+      address1: '',
+      address2: '',
+      zipcode: '',
+      cardName: '',
+      cardNumber: '',
+      securityCode: '',
+    })
+    this.props.clearCart()
+  }
+
   render(){
     return(
       <div>
@@ -126,7 +146,7 @@ class Checkout extends React.Component {
           <br />
 
           <label htmlFor='zipcode'>Zip Code</label>
-          <input onChange={this.handleZipcodeChange} name='zipcode' type='number' />
+          <input onChange={this.handleZipcodeChange} name='zipcode' type='text' />
           <br />
 
           <label htmlFor='address1'>Address 1</label>
@@ -142,16 +162,17 @@ class Checkout extends React.Component {
           <br />
 
           <label htmlFor='card-number'>Card Number</label>
-          <input onChange={this.handleCardNumberChange} name='cardNumber' type='number' />
+          <input onChange={this.handleCardNumberChange} name='cardNumber' type='text' />
           <br />
 
           <label htmlFor='security-code'>Security Code</label>
-          <input onChange={this.handleSecurityCode} name='securityCode' type='number' />
+          <input onChange={this.handleSecurityCode} name='securityCode' type='text' />
           <br />
 
         </form>
+          <ModalPurchase purchased={this.purchased} />
+          {/* <Button type='submit' onClick={this.purchased}>Pay Now</Button> */}
 
-        <button type='submit' onClick={this.props.clearCart}>Pay Now</button>
       </div>
     )
   }
