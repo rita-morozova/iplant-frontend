@@ -1,7 +1,6 @@
 import React from 'react'
-import CartTotal from './CartTotal'
-import { Button, Modal } from 'semantic-ui-react'
 import ModalPurchase from './ModalPurchase'
+import {Form, Select} from 'semantic-ui-react'
 
 class Checkout extends React.Component {
 
@@ -9,6 +8,7 @@ class Checkout extends React.Component {
     firstName: '',
     lastName: '',
     email: '',
+    confirmEmail: '',
     country: '',
     state: '',
     city: '',
@@ -18,6 +18,14 @@ class Checkout extends React.Component {
     cardName: '',
     cardNumber: '',
     securityCode: '',
+    total: 0,
+  }
+
+  componentDidMount = () => {
+    let cartTotal =this.props.cart.map (plant => plant.plant.price).reduce((acc, price) => (acc + price), 0).toFixed(2)
+    this.setState({
+      total: cartTotal
+    })
   }
 
    handleFirstNameChange = e => {
@@ -35,6 +43,12 @@ class Checkout extends React.Component {
   handleEmailChange = e => {
     this.setState({
       email: e.target.value
+    })
+  }
+
+  handleEmailConfirmChange = e => {
+    this.setState({
+      confirmEmail: e.target.value
     })
   }
 
@@ -93,7 +107,7 @@ class Checkout extends React.Component {
   }
 
   // handleSubmit =() =>{
-  //  POST method, not required in this projects
+  //  POST method, not required for this projects
   // }
 
   purchased = () => {
@@ -115,64 +129,67 @@ class Checkout extends React.Component {
   }
 
   render(){
+    const country = [{key: 'USA', text: 'USA', value: 'USA'}]
     return(
       <div>
+        <div className='cart-total'>
+          <span className='cart-total-label'>
+              Total: 
+          </span>
+            <span className='cart-total-value'>    
+              ${this.state.total}
+            </span>
+        </div>
+
+        <Form className='checkout-form' onSubmit={this.handleSubmit}> 
+
+        <Form.Group>
+          <Form.Input required label='First Name' name='first-name' placeholder='First Name' type='text' width={6} onChange={this.handleFirstNameChange} />
+          <Form.Input required label='Last Name' name='last-name' placeholder='Last Name' type='text' width={6} onChange={this.handleLastNameChange} />
+        </Form.Group> 
+        <br />
+      
+
+        <Form.Group>
+          <Form.Input required label='Email' name='email' placeholder='iPlant@plants.com' type='text' width={6} onChange={this.handleEmailChange} />
+          <Form.Input required label='Confirm Email' name='confirm-email' placeholder='iPlant@plants.com' type='text' width={6} onChange={this.handleEmailConfirmChange} />
+        </Form.Group>
+          <br />
+       
+
+        <Form.Group>
+          <Form.Input required
+            control={Select} 
+            options={country}
+            label={{children: 'Country', htmlFor: 'form-select-control-country'}}
+            placeholder='Country' 
+            search
+            searchInput={{id: 'form-select-control-country'}}
+            width={4}
+            onChange={this.handleCountryChange} />
+          <Form.Input required label='State' name='state' placeholder='State' type='text' width={4} onChange={this.handleStateChange} />
+          <Form.Input required label='City' name='city' placeholder='City' type='text' width={4} onChange={this.handleCityChange}  />
+        </Form.Group>  
+        <br />
         
+        <Form.Group>
+        <Form.Input required label='Zip Code' name='zipcode' placeholder='Zip Code' type='text' width={4} onChange={this.handleZipcodeChange}  />
+          <Form.Input required label='Address 1' name='address1' placeholder='Address 1' type='text' width={4} onChange={this.handleAddress1Change} />
+          <Form.Input label='Address 2' name='address2' placeholder='Address 2' type='text' width={4} onChange={this.handleAddress2Change} />
+        </Form.Group> 
 
-        <form onSubmit={this.handleSubmit}>
+        <Form.Group>
+          <Form.Input required label='Name On Card' name='cardName' placeholder='Name On Card' type='text' width={4} onChange={this.handleCardNameChange} />
+          <Form.Input required label='Card Number'  name='cardNumber' placeholder='Card Number' type='password' width={4} onChange={this.handleCardNumberChange} />
+          <Form.Input required label='CVV' name='CVV' placeholder='CVV' type='password' width={4} onChange={this.handleSecurityCode} />
+        </Form.Group>
 
-          <label htmlFor='first-name'>First Name</label>
-          <input onChange={this.handleFirstNameChange} name='first-name' type='text' />
-          <br />
+        </Form>
+        <br />
 
-          <label htmlFor='last-name'>Last Name</label>
-          <input onChange={this.handleLastNameChange} name='last-name' type='text' />
-          <br />
-
-          <label htmlFor='email'>Email</label>
-          <input onChange={this.handleEmailChange} name='email' type='text' />
-          <br />
-
-          <label htmlFor='country'>Country</label>
-          <input onChange={this.handleCountryChange} name='country' type='text' />
-          <br />
-
-          <label htmlFor='state'>State</label>
-          <input onChange={this.handleStateChange} name='state' type='text' />
-          <br />
-
-          <label htmlFor='city'>City</label>
-          <input onChange={this.handleCityChange} name='city' type='text' />
-          <br />
-
-          <label htmlFor='zipcode'>Zip Code</label>
-          <input onChange={this.handleZipcodeChange} name='zipcode' type='text' />
-          <br />
-
-          <label htmlFor='address1'>Address 1</label>
-          <input onChange={this.handleAddress1Change} name='address1' type='text' />
-          <br />
-
-          <label htmlFor='address2'>Address 2</label>
-          <input onChange={this.handleAddress2Change} name='address2' type='text' />
-          <br />
-
-          <label htmlFor='card-name'>Name On Card</label>
-          <input onChange={this.handleCardNameChange} name='cardName' type='text' />
-          <br />
-
-          <label htmlFor='card-number'>Card Number</label>
-          <input onChange={this.handleCardNumberChange} name='cardNumber' type='text' />
-          <br />
-
-          <label htmlFor='security-code'>Security Code</label>
-          <input onChange={this.handleSecurityCode} name='securityCode' type='text' />
-          <br />
-
-        </form>
           <ModalPurchase purchased={this.purchased} />
           {/* <Button type='submit' onClick={this.purchased}>Pay Now</Button> */}
-
+         
       </div>
     )
   }

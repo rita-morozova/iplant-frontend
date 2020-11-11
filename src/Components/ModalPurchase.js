@@ -11,7 +11,7 @@ const ModalPurchase = ({purchased}) => {
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-      trigger={<Button>Pay Now</Button>}>
+      trigger={<button type='button' className='pay-now-button'>Pay Now</button>}>
       <Modal.Header>Thank you!</Modal.Header>
       <Modal.Content>
         <Modal.Description>

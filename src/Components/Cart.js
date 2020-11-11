@@ -59,7 +59,7 @@ class Cart extends React.Component {
 
         <CartTotal cart={cart}/>
 
-         <Link to={'/checkout'}>
+         <Link to={'/checkout'} total={<CartTotal cart={cart} />}>
               <button type='button' className='cart-checkout-button'> 
                 Checkout
                </button>
