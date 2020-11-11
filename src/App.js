@@ -8,6 +8,8 @@ import NotFound from './Components/NotFound'
 import Home from './Components/Home'
 import Header from './Components/Header'
 import PlantDetails from './Components/PlantDetails'
+import Signup from './Components/Signup'
+import Login from './Components/Login'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 
@@ -16,20 +18,21 @@ class App extends React.Component {
 
   state = {
     cart: [],
-    favorites: []
+    favorites: [],
+    userid: null,
   }
 
   componentDidMount(){
-    fetch('https://iplant-backend.herokuapp.com/users/1')
-    .then(resp => resp.json())
-    .then(userData => {
-      this.setState({cart: userData.transactions, favorites: userData.favorites})
-    })
+    // fetch('https://iplant-backend.herokuapp.com/users/1')
+    // .then(resp => resp.json())
+    // .then(userData => {
+    //   this.setState({cart: userData.transactions, favorites: userData.favorites})
+    // })
   }
 
   addToCart = plant => {
-    const newCart= {transaction: { plant_id: plant.id, user_id: 1}}
-    fetch('http://iplant-backend.herokuapp.com/transactions', {
+    const newCart= {transaction: { plant_id: plant.id, user_id: this.state.userid}}
+    fetch('http://localhost:4000/transactions', {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
@@ -46,7 +49,7 @@ class App extends React.Component {
 
   removeFromCart = plant => {
     const cartItem= this.state.cart.find(item => item.plant.id === plant.id)
-    fetch(`https://iplant-backend.herokuapp.com/transactions/${cartItem.id}`, {
+    fetch(`http://localhost:4000/transactions/${cartItem.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type':'application/json'
@@ -68,8 +71,8 @@ class App extends React.Component {
   // }
 
   addFavorite = (plant) => {
-    const newFavorite = { favorite: { plant_id: plant.id, user_id: 1}}
-    fetch('https://iplant-backend.herokuapp.com/favorites', {
+    const newFavorite = { favorite: { plant_id: plant.id, user_id: this.state.userid}}
+    fetch('http://localhost:4000/favorites', {
       method: 'POST',
       headers: {
         'Content-Type':'application/json'
@@ -86,7 +89,7 @@ class App extends React.Component {
 
   removeFavorite = (plant) => {
     const foundFavorite = this.state.favorites.find(favorite => favorite.plant.id === plant.id)
-    fetch(`https://iplant-backend.herokuapp.com/favorites/${foundFavorite.id}`,{
+    fetch(`http://localhost:4000/favorites/${foundFavorite.id}`,{
       method: 'DELETE',
       headers: {
         'Content-Type':'application/json'
@@ -100,6 +103,19 @@ class App extends React.Component {
     })
   }
   
+  handleSubmit = (data, route) => {
+    fetch(route, {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(resp => resp.json())
+    .then(user => {
+      this.setState({userid: user.id, favorites: user.favorites, cart: user.transactions}, () => <Route exact path='/' component={Home} />)
+      })
+}
 
   render(){
       let {cart} = this.state
@@ -117,6 +133,8 @@ class App extends React.Component {
                     <Route exact path='/all-plants/:id' component={PlantDetails} />
                     <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites.map(favorite => favorite.plant)} removeFavorite={this.removeFavorite}/>} />
                     <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart} />} />
+                    <Route exact path='/signup' component={() => <Signup handleSubmit={this.handleSubmit}/>} />
+                    <Route exact path='/login' component={() => <Login handleSubmit={this.handleSubmit}/>} />
                     <Route component={NotFound} />
                     </Switch>
                   </div>
