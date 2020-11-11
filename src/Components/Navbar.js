@@ -20,6 +20,11 @@ class Navbar extends React.Component {
         <NavLink to='/all-plants' exact style={link} activeStyle={{background: 'darkblue'}}> Shop All </NavLink>
         <NavLink to='/my-picks' exact style={link} activeStyle={{background: 'darkblue'}}> My Favorites </NavLink>
         <NavLink to='/my-cart' exact style={link} activeStyle={{background: 'darkblue'}}> Cart </NavLink>
+        {this.props.userid ? null : 
+          <>
+          <NavLink to='/login' exact style={link} activeStyle={{background: 'darkblue'}}> Login </NavLink>
+          <NavLink to='/signup' exact style={link} activeStyle={{background: 'darkblue'}}> Signup </NavLink>
+          </>}
       </div>
     )
   }

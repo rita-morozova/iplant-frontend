@@ -13,7 +13,7 @@ import Login from './Components/Login'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Checkout from './Components/Checkout'
 
-const URL = 'http://localhost:4000'
+const URL = 'https://iplant-backend.herokuapp.com'
 
 class App extends React.Component {
 
@@ -125,7 +125,7 @@ class App extends React.Component {
        <Header />
           <br />
             <Router>
-               <Navbar />   
+               <Navbar userid={this.state.userid}/>   
                <br />
                   <div>
                     <Switch>

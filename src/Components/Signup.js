@@ -26,7 +26,7 @@ class Signup extends Component {
                 <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/><br />
                 <label htmlFor='password'>Password: </label>
                 <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/><br />
-                <label htmlFor='password_confirmation'>Name: </label>
+                <label htmlFor='password_confirmation'>Confirm Password: </label>
                 <input type='password' name='password_confirmation' value={this.state['password_confirmation']} onChange={this.handleChange}/><br />
                 <input type='submit' />
             </form>
