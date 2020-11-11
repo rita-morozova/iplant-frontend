@@ -1,6 +1,6 @@
 import React from 'react'
-import {Card, Icon} from 'semantic-ui-react'
-import PopUp from './PopUp'
+import {Card, Icon, Button} from 'semantic-ui-react'
+import ModalAddToCart from './ModalAddToCart'
 
 
 const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavorite}) => {
@@ -25,10 +25,11 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavori
             <h4>{chosenPlant.easyToCare ? "Low Maintenance" : "High Maintenance"}</h4>
             <h4>{chosenPlant.lowLight ? "Low Light" : "Bright Light"}</h4>
             <h3>${price}</h3>
-            <button onClick={() => addToCart(chosenPlant)}>Add To Cart</button>
+            <ModalAddToCart addToCart={addToCart} chosenPlant={chosenPlant} />
+            {/* <button onClick={() => addToCart(chosenPlant)}>Add To Cart</button> */}
             <br />
             <br />
-            <button onClick={goBackToAllPlants}>Back To All Plants</button>
+            <Button onClick={goBackToAllPlants}>Back To All Plants</Button>
             <br />
             <br />
             <div className="extra">
