@@ -61,11 +61,12 @@ class App extends React.Component {
     })
   }
   
-  // clearCart = () => {
-  //   this.setState({
-  //     cart: []
-  //   })
-  // }
+
+  clearCart =() =>{
+    let cartPlants=this.state.cart.map(plant => (plant.plant))
+    cartPlants.forEach(plant => this.removeFromCart(plant))
+  }
+
 
   addFavorite = (plant) => {
     const newFavorite = { favorite: { plant_id: plant.id, user_id: 1}}
@@ -116,8 +117,8 @@ class App extends React.Component {
                     <Route exact path='/all-plants' component={() => <MainContainer cart={cart} addFavorite={this.addFavorite} addToCart={this.addToCart} />} />
                     <Route exact path='/all-plants/:id' component={PlantDetails} />
                     <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites.map(favorite => favorite.plant)} removeFavorite={this.removeFavorite}/>} />
-                    <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart} />} />
-                    <Route exact path='/checkout' component={() => <Checkout cart={cart} />} />
+                    <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart}z />} />
+                    <Route exact path='/checkout' component={() => <Checkout cart={cart} clearCart={this.clearCart} />} />
                     <Route component={NotFound} />
                     </Switch>
                   </div>

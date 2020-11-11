@@ -1,4 +1,5 @@
 import React from 'react'
+import CartTotal from './CartTotal'
 
 class Checkout extends React.Component {
 
@@ -90,12 +91,14 @@ class Checkout extends React.Component {
   }
 
   // handleSubmit =() =>{
-  //   console.log(e)
+  //  POST method, not required in this projects
   // }
 
   render(){
     return(
       <div>
+        
+
         <form onSubmit={this.handleSubmit}>
 
           <label htmlFor='first-name'>First Name</label>
@@ -148,7 +151,7 @@ class Checkout extends React.Component {
 
         </form>
 
-        <button type='submit'>Pay Now</button>
+        <button type='submit' onClick={this.props.clearCart}>Pay Now</button>
       </div>
     )
   }

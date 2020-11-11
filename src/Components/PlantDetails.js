@@ -13,13 +13,6 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavori
     </div>
   )
 
-
-  // const addToCart = chosenPlant => {
-  //   console.log(chosenPlant)
-  //  cart.push([chosenPlant[0]])
-  // }
-
-
   return(
     <Card>
       <div>

@@ -21,12 +21,14 @@ class Cart extends React.Component {
   // }
 
 
+
   render(){
     const {cart} = this.props
     
     return(
       <div>
         <br />
+        <button onClick={this.props.clearCart}>Clear Cart</button>
         <h2> Your Cart</h2>
         <div>
           {cart.map(plant => (
@@ -53,6 +55,7 @@ class Cart extends React.Component {
             </li>
           ))}
         </div>
+        
 
         <CartTotal cart={cart}/>
 

@@ -30,7 +30,7 @@ li {
 
 .cart-item-delete {
   flex: 0 0 auto;
-  margin: 0.5rem;
+  margin: 2.5rem;
 }
 
 .cart-item-info{
@@ -53,6 +53,7 @@ li {
 }
 
 .cart-total {
+  margin: 2.5rem;
   font-size: 1.25rem;
   display: flex;
   justify-content: space-between;
