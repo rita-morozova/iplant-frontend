@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {Form} from 'semantic-ui-react'
+import '../App.css'
 
 class Login extends Component {
     state = {
@@ -17,13 +19,13 @@ class Login extends Component {
 
     render(){
         return(
-           <form onSubmit={(event) => this.handleSubmit(event)}>
-                <label htmlFor='email'>Email: </label>
-                <input type='text' name='email' value={this.state.email} onChange={this.handleChange}/><br />
-                <label htmlFor='password'>Password: </label>
-                <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/><br />
+           <Form className='login-form' onSubmit={(event) => this.handleSubmit(event)}>
+                <Form.Input label='Email' type='text' name='email' value={this.state.email} onChange={this.handleChange} width={6}/><br />
+
+                <Form.Input label='Password' type='password' name='password' value={this.state.password} onChange={this.handleChange} width={6}/><br />
+
                 <input type='submit' /> 
-            </form>
+            </Form>
            
         )
     }

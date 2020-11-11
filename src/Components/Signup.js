@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import '../App.css'
+import {Form} from 'semantic-ui-react'
 
 class Signup extends Component {
     state = {
@@ -19,17 +21,17 @@ class Signup extends Component {
 
     render(){
         return(
-            <form onSubmit={(event) => this.handleSubmit(event)}>
-                <label htmlFor='email'>Email: </label>
-                <input type='text' name='email' value={this.state.email} onChange={this.handleChange}/><br />
-                <label htmlFor='name'>Name: </label>
-                <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/><br />
-                <label htmlFor='password'>Password: </label>
-                <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/><br />
-                <label htmlFor='password_confirmation'>Confirm Password: </label>
-                <input type='password' name='password_confirmation' value={this.state['password_confirmation']} onChange={this.handleChange}/><br />
+            <Form className='signup-form' onSubmit={(event) => this.handleSubmit(event)}>
+                <Form.Input label='Email' type='text' name='email' value={this.state.email} onChange={this.handleChange} width={6}/><br />
+               
+                <Form.Input label='Name' type='text' name='name' value={this.state.name} onChange={this.handleChange} width={6}/><br />
+               
+                <Form.Input label='Password' type='password' name='password' value={this.state.password} onChange={this.handleChange} width={6}/><br />
+                
+                <Form.Input label='Confirm Password' type='password' name='password_confirmation' value={this.state['password_confirmation']} onChange={this.handleChange} width={6}/><br />
+                
                 <input type='submit' />
-            </form>
+            </Form>
         )
     }
 }
