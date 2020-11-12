@@ -5,14 +5,14 @@ import {Form, Select} from 'semantic-ui-react'
 class Checkout extends React.Component {
 
   state = {
-    firstName: '',
-    lastName: '',
-    email: '',
+    firstName: this.props.user.name.split(' ')[0],
+    lastName: this.props.user.name.split(' ')[1] ? this.props.user.name.split(' ')[1] : '',
+    email: this.props.user.email,
     confirmEmail: '',
     country: '',
     state: '',
     city: '',
-    address1: '',
+    address1: this.props.user.address,
     address2: '',
     zipcode: '',
     cardName: '',
@@ -144,15 +144,15 @@ class Checkout extends React.Component {
         <Form className='checkout-form' onSubmit={this.handleSubmit}> 
 
         <Form.Group>
-          <Form.Input required label='First Name' name='first-name' placeholder='First Name' type='text' width={6} onChange={this.handleFirstNameChange} />
-          <Form.Input required label='Last Name' name='last-name' placeholder='Last Name' type='text' width={6} onChange={this.handleLastNameChange} />
+          <Form.Input required label='First Name' name='first-name' placeholder='First Name' type='text' width={6} onChange={this.handleFirstNameChange} value={this.state.firstName}/>
+          <Form.Input required label='Last Name' name='last-name' placeholder='Last Name' type='text' width={6} onChange={this.handleLastNameChange} value={this.state.lastName}/>
         </Form.Group> 
         <br />
       
 
         <Form.Group>
-          <Form.Input required label='Email' name='email' placeholder='iPlant@plants.com' type='text' width={6} onChange={this.handleEmailChange} />
-          <Form.Input required label='Confirm Email' name='confirm-email' placeholder='iPlant@plants.com' type='text' width={6} onChange={this.handleEmailConfirmChange} />
+          <Form.Input required label='Email' name='email' placeholder='iPlant@plants.com' type='text' width={6} onChange={this.handleEmailChange} value={this.state.email}/>
+          <Form.Input required label='Confirm Email' name='confirm-email' placeholder='iPlant@plants.com' type='text' width={6} onChange={this.handleEmailConfirmChange} value={this.state.confirmEmail}/>
         </Form.Group>
           <br />
        
@@ -174,7 +174,7 @@ class Checkout extends React.Component {
         
         <Form.Group>
         <Form.Input required label='Zip Code' name='zipcode' placeholder='Zip Code' type='text' width={4} onChange={this.handleZipcodeChange}  />
-          <Form.Input required label='Address 1' name='address1' placeholder='Address 1' type='text' width={4} onChange={this.handleAddress1Change} />
+          <Form.Input required label='Address 1' name='address1' placeholder='Address 1' type='text' width={4} onChange={this.handleAddress1Change} value={this.state.address1}/>
           <Form.Input label='Address 2' name='address2' placeholder='Address 2' type='text' width={4} onChange={this.handleAddress2Change} />
         </Form.Group> 
 

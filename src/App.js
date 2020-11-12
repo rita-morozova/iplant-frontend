@@ -121,6 +121,7 @@ class App extends React.Component {
       const transactions = user.transactions ? user.transactions : []
       this.setState({userid: user.id, favorites: favorites, cart: transactions, user: user})
       })
+    .catch(errors => console.log(errors))
   }
 
   handleLogout = () => {
@@ -143,7 +144,7 @@ class App extends React.Component {
                     <Route exact path='/my-cart' component={() => cart.length === 0 ? ( <EmptyCart />) :                          
                       (<Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart} />)
                       }/>
-                    <Route exact path='/checkout' component={() => <Checkout cart={cart} clearCart={this.clearCart} />} />
+                    <Route exact path='/checkout' component={() => <Checkout cart={cart} clearCart={this.clearCart} user={this.state.user}/>} />
                     <Route exact path='/signup' component={() => this.state.userid ? <Redirect to="/" push={true} /> : <Signup handleSubmit={this.handleSubmit}/>} />
                     <Route exact path='/login' component={() => this.state.userid ? <Redirect to="/" push={true} /> : <Login handleSubmit={this.handleSubmit}/>} />
                     <Route exact path='/account' component={() => this.state.userid ? <Account handleSubmit={this.handleSubmit} user={this.state.user}/> : <Redirect to="/login" push={true} />} />
