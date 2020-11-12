@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import React from 'react'
-import {Card, Icon} from 'semantic-ui-react'
+import {Card, Icon, Image} from 'semantic-ui-react'
 
 
 class PlantCard extends React.Component {
@@ -17,13 +17,13 @@ class PlantCard extends React.Component {
         return(
           <Card>
             <div key={plant.id}>
-              <div className="image" onClick={handleClick}>
-                <img src={plant.image} alt="Plant" />
+              <div className='image' onClick={handleClick}>
+                  <Image src={plant.image} alt="Plant" wrapped ui={false} />
               </div>
-              <div className="content">
-                <h2>{plant.name}</h2>
-                  <h3>${price}</h3>
-              </div>
+              <Card.Content>
+                <Card.Header>{plant.name}</Card.Header>
+                  <Card.Description>${price}</Card.Description>
+              </Card.Content>
               <br />
               {this.props.removeFavorite ? <span onClick={() => this.props.removeFavorite(plant)}><Icon bordered color='red' name='heart'  /></span> : null}
           </div>

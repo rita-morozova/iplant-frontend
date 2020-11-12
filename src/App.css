@@ -51,3 +51,8 @@ body {
 .main-img{
   width: 100%;
 }
+
+.ui.search{
+  float: right;
+}
+

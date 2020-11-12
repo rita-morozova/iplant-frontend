@@ -58,9 +58,10 @@ class MainContainer extends React.Component {
    
     return(
       <div>
-        <Container>
+        <Container textAlign='center'>
           <br />
-          <h2>Hello! Welcome to our store! Bla bla bla bla</h2>
+          <h2 className='main-header'>ALL PLANTS </h2>
+          <div class="ui divider"></div>
           <SearchBar onChange={this.handleSearch} />
           <br />
           <Filter selectFilter={this.selectFilter} />

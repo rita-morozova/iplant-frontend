@@ -34,7 +34,7 @@ class PlantsContainer extends React.Component{
  
     return(
       <div>
-         <Card.Group itemsPerRow={2}>
+         <Card.Group itemsPerRow={3}>
         {filterPlants().map(plant => (
           <PlantCard  key={plant.id} plant={plant} selectPlant={selectPlant} />
         ))}

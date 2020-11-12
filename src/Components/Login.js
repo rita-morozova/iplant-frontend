@@ -34,7 +34,7 @@ class Login extends Component {
                                 <Form.Input fluid icon='lock' iconPosition='left' type='password' name='password' placeholder='Password' value={this.state.password} onChange={this.handleChange}/><br />
 
                                     {/* <input type='submit'/>  */}
-                                <Button color='blue' fluid size='large'>
+                                <Button color='olive' fluid size='large'>
                                     Login
                                 </Button>    
                         </Segment>

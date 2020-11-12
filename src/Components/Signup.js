@@ -38,7 +38,7 @@ class Signup extends Component {
                             <Form.Input fluid placeholder='Confirm Password' type='password' name='password_confirmation' value={this.state['password_confirmation']} onChange={this.handleChange}/><br />
                 
                             {/* <input type='submit' /> */}
-                                <Button color='blue' fluid size='large'>
+                                <Button color='olive' fluid size='large'>
                                     Sign Up
                                 </Button> 
                             </Segment>

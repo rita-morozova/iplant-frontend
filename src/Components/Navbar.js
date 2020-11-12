@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, Link} from 'react-router-dom'
 import {Icon, Grid, Menu} from 'semantic-ui-react'
 import '../App.css'
 
@@ -19,7 +19,7 @@ class Navbar extends React.Component {
       <div>
         <Grid padded className='tablet computer only'>
           <Menu borderless fluid size='large'>
-              <Menu.Item header>IPLANT<Icon name='heart' color='red' /></Menu.Item>
+              <Link to='/'><Menu.Item header>IPLANT<Icon name='heart' color='red' size='small' /></Menu.Item></Link>
                   <NavLink to='/' exact style={link} activeStyle={{background: '#f1f3f3'}}> Home </NavLink>
                   {this.props.userid ? 
                     <>
