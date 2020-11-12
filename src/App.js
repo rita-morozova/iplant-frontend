@@ -12,6 +12,7 @@ import Login from './Components/Login'
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import Checkout from './Components/Checkout'
 import Account from './Components/Account'
+import EmptyCart from './Components/EmptyCart'
 // import Footer from './Components/Footer'
 
 const URL = 'https://iplant-backend.herokuapp.com'
@@ -139,7 +140,9 @@ class App extends React.Component {
                     <Route exact path='/all-plants' component={() => <MainContainer cart={cart} addFavorite={this.addFavorite} addToCart={this.addToCart} />} />
                     <Route exact path='/all-plants/:id' component={PlantDetails} />
                     <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites.map(favorite => favorite.plant)} removeFavorite={this.removeFavorite}/>} />
-                    <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart}z />} />
+                    <Route exact path='/my-cart' component={() => cart.length === 0 ? ( <EmptyCart />) :                          
+                      (<Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart} />)
+                      }/>
                     <Route exact path='/checkout' component={() => <Checkout cart={cart} clearCart={this.clearCart} />} />
                     <Route exact path='/signup' component={() => this.state.userid ? <Redirect to="/" push={true} /> : <Signup handleSubmit={this.handleSubmit}/>} />
                     <Route exact path='/login' component={() => this.state.userid ? <Redirect to="/" push={true} /> : <Login handleSubmit={this.handleSubmit}/>} />
