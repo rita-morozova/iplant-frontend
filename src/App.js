@@ -14,7 +14,7 @@ import Checkout from './Components/Checkout'
 import Account from './Components/Account'
 import EmptyCart from './Components/EmptyCart'
 import About from './Components/About'
-// import Footer from './Components/Footer'
+import Footer from './Components/Footer'
 
 const URL = 'https://iplant-backend.herokuapp.com'
 
@@ -154,7 +154,7 @@ class App extends React.Component {
                     <Route component={NotFound} />
                     </Switch>
                   </div>
-                  {/* <Footer /> */}
+                  <Footer />
             </Router> 
        
     </div>

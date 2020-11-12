@@ -11,7 +11,7 @@ const EmptyCart = () => {
       <br />
       <Link to='/all-plants'>
         <Button color='olive'>Continue Shopping</Button>
-      </Link>
+      </Link>     
     </Container>
   )
 }

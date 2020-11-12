@@ -1,6 +1,5 @@
 import React from 'react'
-import {Button, Container, Grid, Header, Icon, Image, Menu, Segment} from 'semantic-ui-react'
-import Slider from 'react-slick'
+import {Button, Container, Grid, Header, Image, Segment} from 'semantic-ui-react'
 import plant1 from '../images/plant1.jpg'
 import plant3 from '../images/plant3.jpg'
 import {Link} from 'react-router-dom'
@@ -64,14 +63,8 @@ const Home =() => {
                   Need to throw a little party? Let us know, our space upstairs is available for rent.
                   We also have a full bar to bring a little fun to your party!
                 </p>
-                <Button basic>Email Us</Button>
+                <a href='mailto: hello@iplant.com'><Button basic>Email Us</Button></a>
             </Grid.Column>
-            <Segment vertical>
-              <Grid.Column>
-                Plants with <Icon name='heart' color='red' size='tiny'/>
-                © 2020 IPLANT, LLC  
-              </Grid.Column>
-            </Segment>
           </Grid>
         </Segment>
       </Container>
