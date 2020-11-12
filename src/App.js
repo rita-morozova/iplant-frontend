@@ -12,6 +12,7 @@ import Signup from './Components/Signup'
 import Login from './Components/Login'
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import Checkout from './Components/Checkout'
+// import Footer from './Components/Footer'
 
 const URL = 'https://iplant-backend.herokuapp.com'
 
@@ -130,10 +131,8 @@ class App extends React.Component {
       let {cart} = this.state
   return (
     <div className="App">   
-       {/* <Header /> */}
             <Router>
                <Navbar userid={this.state.userid}/>   
-               <br />
                   <div>
                     <Switch>
                     <Route exact path='/' component={Home} />
@@ -148,6 +147,7 @@ class App extends React.Component {
                     <Route component={NotFound} />
                     </Switch>
                   </div>
+                  {/* <Footer /> */}
             </Router> 
        
     </div>

@@ -34,5 +34,20 @@ body {
   font-weight: 400;
 }
 
+.ui.inverted.segment {
+  background-color: #777;
+}
 
+.ui.vertical.segment:not(.inverted) {
+  padding-top: 6rem;
+}
 
+.ui.borderless.inverted.menu {
+  background-color: #2f2f2f;
+  border-radius: 4px;
+  flex-wrap: wrap;
+}
+
+.main-img{
+  width: 100%;
+}
