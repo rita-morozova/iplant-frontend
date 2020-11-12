@@ -11,6 +11,7 @@ import Signup from './Components/Signup'
 import Login from './Components/Login'
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 import Checkout from './Components/Checkout'
+import Account from './Components/Account'
 // import Footer from './Components/Footer'
 
 const URL = 'https://iplant-backend.herokuapp.com'
@@ -21,6 +22,7 @@ class App extends React.Component {
     cart: [],
     favorites: [],
     userid: null,
+    user: null
   }
 
   componentDidMount(){
@@ -104,9 +106,9 @@ class App extends React.Component {
     })
   }
   
-  handleSubmit = (data, route) => {
+  handleSubmit = (data, route, method='POST') => {
     fetch(`${URL}${route}`, {
-        method: 'POST',
+        method: method,
         headers: {
             'Content-Type':'application/json'
         },
@@ -116,13 +118,12 @@ class App extends React.Component {
     .then(user => {
       const favorites = user.favorites ? user.favorites : []
       const transactions = user.transactions ? user.transactions : []
-      this.setState({userid: user.id, favorites: favorites, cart: transactions})
+      this.setState({userid: user.id, favorites: favorites, cart: transactions, user: user})
       })
-    .then(<Redirect to="/" push={true} />)
   }
 
   handleLogout = () => {
-    this.setState({userid: null, favorites: [], cart: []})
+    this.setState({userid: null, favorites: [], cart: [], user: null})
     return <Redirect to="/" push={true} />
   }
 
@@ -140,8 +141,9 @@ class App extends React.Component {
                     <Route exact path='/my-picks' component={() => <FavoritesContainer favorites={this.state.favorites.map(favorite => favorite.plant)} removeFavorite={this.removeFavorite}/>} />
                     <Route exact path='/my-cart' component={() => <Cart cart={cart} removeFromCart={this.removeFromCart} clearCart={this.clearCart}z />} />
                     <Route exact path='/checkout' component={() => <Checkout cart={cart} clearCart={this.clearCart} />} />
-                    <Route exact path='/signup' component={() => <Signup handleSubmit={this.handleSubmit}/>} />
-                    <Route exact path='/login' component={() => <Login handleSubmit={this.handleSubmit}/>} />
+                    <Route exact path='/signup' component={() => this.state.userid ? <Redirect to="/" push={true} /> : <Signup handleSubmit={this.handleSubmit}/>} />
+                    <Route exact path='/login' component={() => this.state.userid ? <Redirect to="/" push={true} /> : <Login handleSubmit={this.handleSubmit}/>} />
+                    <Route exact path='/account' component={() => this.state.userid ? <Account handleSubmit={this.handleSubmit} user={this.state.user}/> : <Redirect to="/login" push={true} />} />
                     <Route exact path='/logout' component={() => this.handleLogout()} />
                     <Route component={NotFound} />
                     </Switch>
