@@ -21,6 +21,7 @@ class Navbar extends React.Component {
           <Menu borderless fluid size='large'>
               <Link to='/'><Menu.Item header>IPLANT<Icon name='heart' color='red' size='small' /></Menu.Item></Link>
                   <NavLink to='/' exact style={link} activeStyle={{background: '#f1f3f3'}}> Home </NavLink>
+                  <NavLink to='/about-us' exact style={link} activeStyle={{background: '#f1f3f3'}}>About Us</NavLink>
                   {this.props.userid ? 
                     <>
                     <NavLink to='/all-plants' exact style={link} activeStyle={{background: '#f1f3f3'}}> Shop All </NavLink>

@@ -13,6 +13,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import Checkout from './Components/Checkout'
 import Account from './Components/Account'
 import EmptyCart from './Components/EmptyCart'
+import About from './Components/About'
 // import Footer from './Components/Footer'
 
 const URL = 'https://iplant-backend.herokuapp.com'
@@ -149,6 +150,7 @@ class App extends React.Component {
                     <Route exact path='/login' component={() => this.state.userid ? <Redirect to="/" push={true} /> : <Login handleSubmit={this.handleSubmit}/>} />
                     <Route exact path='/account' component={() => this.state.userid ? <Account handleSubmit={this.handleSubmit} user={this.state.user}/> : <Redirect to="/login" push={true} />} />
                     <Route exact path='/logout' component={() => this.handleLogout()} />
+                    <Route exact path='/about-us' component={About} />
                     <Route component={NotFound} />
                     </Switch>
                   </div>
