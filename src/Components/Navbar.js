@@ -19,7 +19,7 @@ class Navbar extends React.Component {
       <div>
         <Grid padded className='tablet computer only'>
           <Menu borderless fluid size='large'>
-              <Menu.Item header>IPLANT<Icon name='heart' /></Menu.Item>
+              <Menu.Item header>IPLANT<Icon name='heart'  /></Menu.Item>
                   <NavLink to='/' exact style={link} activeStyle={{background: '#f1f3f3'}}> Home </NavLink>
                   {this.props.userid ? 
                     <>

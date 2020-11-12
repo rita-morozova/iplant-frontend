@@ -17,11 +17,6 @@ body {
   color: white;
 }
 
-.login-form{
-  font-size: 1.25rem;
-  flex: 0 0 auto;
-  margin: 0.25rem 3rem;
-}
 
 .signup-form{
   font-size: 1.25rem;

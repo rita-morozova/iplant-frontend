@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
-import {Form} from 'semantic-ui-react'
+import {Form, Grid, Button, Header, Message, Segment, Icon} from 'semantic-ui-react'
 import '../App.css'
+import logo from '../images/logo.png'
 
 
 class Login extends Component {
@@ -20,14 +21,30 @@ class Login extends Component {
 
     render(){
         return(
-          <Form className='login-form' onSubmit={(event) => this.handleSubmit(event)}>
-                <Form.Input label='Email' type='text' name='email' value={this.state.email} onChange={this.handleChange} width={6}/><br />
+        <div>
+            <Grid textAlign='center' verticalAlign='middle'>
+                <Grid.Column style={{maxWidth: 450}}>
+                    <Header as='h2' textAlign='center'>
+                        Log-in to your account
+                    </Header>
+                        <Form className='login-form' onSubmit={(event) => this.handleSubmit(event)} size='large'>
+                             <Segment stacked>
+                                <Form.Input  fluid icon='user' iconPosition='left' type='text' name='email' placeholder='E-mail address' value={this.state.email} onChange={this.handleChange}/><br />
 
-                <Form.Input label='Password' type='password' name='password' value={this.state.password} onChange={this.handleChange} width={6}/><br />
+                                <Form.Input fluid icon='lock' iconPosition='left' type='password' name='password' placeholder='Password' value={this.state.password} onChange={this.handleChange}/><br />
 
-                <input type='submit'/> 
-                
-            </Form>
+                                    {/* <input type='submit'/>  */}
+                                <Button color='blue' fluid size='large'>
+                                    Login
+                                </Button>    
+                        </Segment>
+                     </Form>
+                     <Message>
+                         New to us? <a href='/signup'>Sign Up</a>
+                     </Message>
+                </Grid.Column>
+            </Grid>
+         </div>   
     
         )
     }
