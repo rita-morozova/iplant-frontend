@@ -16,7 +16,6 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log(this.props.history)
         this.props.handleSubmit(this.state, '/sessions')
     }
 

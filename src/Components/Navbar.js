@@ -27,6 +27,7 @@ class Navbar extends React.Component {
                     <NavLink to='/my-picks' exact style={link} activeStyle={{background: '#f1f3f3'}}> Favorites </NavLink>
                 <Menu.Menu position='right'>
                     <NavLink to='/my-cart' exact style={link} activeStyle={{background: '#f1f3f3'}}> <Icon name='shopping cart' size='large' /> </NavLink>
+                    <NavLink to='/account' exact style={link} activeStyle={{background: '#f1f3f3'}}> Account </NavLink>
                     <NavLink to='/logout' exact style={link} activeStyle={{background: '#f1f3f3'}}> Logout </NavLink>
                 </Menu.Menu>   
                     </>
