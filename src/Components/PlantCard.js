@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import React from 'react'
 import {Card, Icon, Image} from 'semantic-ui-react'
+import PlantDetails from './PlantDetails'
 
 
 class PlantCard extends React.Component {
@@ -11,6 +12,7 @@ class PlantCard extends React.Component {
 
       const handleClick = () => {
         selectPlant(plant.id)
+       
       }
 
    

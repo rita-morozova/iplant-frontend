@@ -68,8 +68,8 @@ const Home =() => {
             </Grid.Column>
             <Segment vertical>
               <Grid.Column>
-              © 2020 IPLANT, LLC  
                 Plants with <Icon name='heart' color='red' size='tiny'/>
+                © 2020 IPLANT, LLC  
               </Grid.Column>
             </Segment>
           </Grid>

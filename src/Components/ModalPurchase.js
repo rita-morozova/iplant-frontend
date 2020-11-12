@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Modal } from 'semantic-ui-react'
+import { Button, Modal, Grid } from 'semantic-ui-react'
 
 const ModalPurchase = ({purchased}) => {
 
@@ -11,7 +11,7 @@ const ModalPurchase = ({purchased}) => {
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-      trigger={<button type='button' className='pay-now-button'>Pay Now</button>}>
+      trigger={<Grid><Grid.Column textAlign='center'><Button color='olive' type='button' className='pay-now-button'>Pay Now</Button></Grid.Column></Grid>}>
       <Modal.Header>Thank you!</Modal.Header>
       <Modal.Content>
         <Modal.Description>

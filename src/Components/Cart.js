@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './Cart.css'
 import CartTotal from './CartTotal'
-import {Icon} from 'semantic-ui-react'
+import {Icon, Button} from 'semantic-ui-react'
 
 
 
@@ -27,7 +27,7 @@ class Cart extends React.Component {
     return(
       <div>
         <br />
-        <button onClick={this.props.clearCart}>Clear Cart</button>
+        
         <h2> Your Cart</h2>
         <div>
           {cart.map(plant => (
@@ -57,11 +57,13 @@ class Cart extends React.Component {
         
 
         <CartTotal cart={cart}/>
+       
+        <Button className='clear' secondary onClick={this.props.clearCart}>Clear Cart</Button>
 
          <Link to={'/checkout'} total={<CartTotal cart={cart} />}>
-              <button type='button' className='cart-checkout-button'> 
+              <Button color='olive' type='button' className='cart-checkout-button'> 
                 Checkout
-               </button>
+               </Button>
           </Link>
       </div>
     )
