@@ -130,8 +130,7 @@ class App extends React.Component {
       let {cart} = this.state
   return (
     <div className="App">   
-       <Header />
-          <br />
+       {/* <Header /> */}
             <Router>
                <Navbar userid={this.state.userid}/>   
                <br />

@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import './Cart.css'
 import CartTotal from './CartTotal'
 import {Icon} from 'semantic-ui-react'
-import Checkout from './Checkout'
+
 
 
 
@@ -24,7 +24,6 @@ class Cart extends React.Component {
 
   render(){
     const {cart} = this.props
-    
     return(
       <div>
         <br />
@@ -64,7 +63,6 @@ class Cart extends React.Component {
                 Checkout
                </button>
           </Link>
-          
       </div>
     )
   }
