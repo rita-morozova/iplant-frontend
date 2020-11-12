@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Form, Grid, Button, Header, Message, Segment, Icon} from 'semantic-ui-react'
+import {Form, Grid, Button, Header, Message, Segment} from 'semantic-ui-react'
 import '../App.css'
 import logo from '../images/logo.png'
 

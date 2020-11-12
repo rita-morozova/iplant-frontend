@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import '../App.css'
-import {Form} from 'semantic-ui-react'
+import {Form, Button, Grid, Header, Segment} from 'semantic-ui-react'
 
 class Signup extends Component {
     state = {
@@ -21,17 +21,31 @@ class Signup extends Component {
 
     render(){
         return(
-            <Form className='signup-form' onSubmit={(event) => this.handleSubmit(event)}>
-                <Form.Input label='Email' type='text' name='email' value={this.state.email} onChange={this.handleChange} width={6}/><br />
+        <div>
+            <Grid textAlign='center' verticalAlign='middle'>
+                <Grid.Column style={{maxWidth: 450}}>
+                    <Header as='h2' textAlign='center'>
+                        Create Your Account
+                    </Header>
+                        <Form className='signup-form' onSubmit={(event) => this.handleSubmit(event)} size='large'>
+                            <Segment stacked>
+                             <Form.Input  fluid placeholder='E-mail address' type='text' name='email' value={this.state.email} onChange={this.handleChange}/><br />
                
-                <Form.Input label='Name' type='text' name='name' value={this.state.name} onChange={this.handleChange} width={6}/><br />
+                             <Form.Input fluid placeholder='Name' type='text' name='name' value={this.state.name} onChange={this.handleChange} /><br />
                
-                <Form.Input label='Password' type='password' name='password' value={this.state.password} onChange={this.handleChange} width={6}/><br />
+                            <Form.Input  fluid placeholder='Password' type='password' name='password' value={this.state.password} onChange={this.handleChange}/><br />
                 
-                <Form.Input label='Confirm Password' type='password' name='password_confirmation' value={this.state['password_confirmation']} onChange={this.handleChange} width={6}/><br />
+                            <Form.Input fluid placeholder='Confirm Password' type='password' name='password_confirmation' value={this.state['password_confirmation']} onChange={this.handleChange}/><br />
                 
-                <input type='submit' />
-            </Form>
+                            {/* <input type='submit' /> */}
+                                <Button color='blue' fluid size='large'>
+                                    Sign Up
+                                </Button> 
+                            </Segment>
+                        </Form>
+                </Grid.Column>
+            </Grid>
+        </div>    
         )
     }
 }

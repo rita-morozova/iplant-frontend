@@ -18,12 +18,6 @@ body {
 }
 
 
-.signup-form{
-  font-size: 1.25rem;
-  flex: 0 0 auto;
-  margin: 0.25rem 3rem;
-}
-
 .ui.borderless.menu {
   background-color: #f8f8f8;;
   box-shadow: none;
