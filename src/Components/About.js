@@ -1,7 +1,8 @@
 import React from 'react'
-import {Container, Button, Divider, Grid, Header,  Image, Segment} from 'semantic-ui-react'
+import {Container, Button, Divider, Grid, Header,  Image, Segment, Embed} from 'semantic-ui-react'
 import decor from '../images/decor.jpg'
 import {Link} from 'react-router-dom'
+import map from '../images/map.png'
 
 
 const About = () => {
@@ -61,6 +62,11 @@ const About = () => {
               <br/>
               Tel: +1(206)777-7777
             </p>
+            <Embed 
+            icon='magnify'
+            placeholder={map}
+            url='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2689.36985510029!2d-122.35528298508567!3d47.618941395119734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549015457ba652e9%3A0xc4cc4897b0f67dea!2s111%202nd%20Ave%20N%2C%20Seattle%2C%20WA%2098109!5e0!3m2!1sen!2sus!4v1605209735409!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"'
+            />
             </Container>
           </Segment>
 
