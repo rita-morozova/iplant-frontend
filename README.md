@@ -1,6 +1,8 @@
 # iPlant
 iPlant is an e-commerce plant shop.  User can look for plants, add plants to their cart, add plants to their favorites list and delete from their favorites list. After adding an item to their cart, the user is prompted to either "Checkout" or "Continue Shopping". When selecting the "Checkout" option the user is able to pay with either a credit/debit card or with PayPal.   
 
+[Project Demo]( https://youtu.be/gJ6-OvyNNwE )
+
 ## Technologies Used
 * Ruby on Rails API on the back end ([see the backend repo here](https://github.com/MullaN/iplant-backend))
 * React & Semantic UI on the front-end
