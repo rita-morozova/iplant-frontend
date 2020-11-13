@@ -8,7 +8,7 @@ iPlant is an e-commerce plant shop.  User can look for plants, add plants to the
 
 ## Setup
 1. Clone this repository into your computer
-2. Within your terminal, navigate to the iplant-frontend folder (cd iplant-frontend)
+2. Within your terminal, navigate to the iplant-frontend folder ('cd iplant-frontend')
 3. Run 'npm install' to install all dependencies for this project
 4. Run 'npm start' to start a server
 5. A new tab will open inside your browser. You don't need to install backend repo on your computer;
@@ -19,7 +19,6 @@ all databases are deployed on Heroku.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-Please make sure to update tests as appropriate.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/) 
