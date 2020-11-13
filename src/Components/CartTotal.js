@@ -10,7 +10,7 @@ const CartTotal = ({cart}) => {
        Total: 
      </span>
          <span className='cart-total-value'>
-           $ {cart.map (plant => plant.plant.price).reduce((acc, price) => (acc + price), 0).toFixed(2)}
+           $ {cart.map (plant => (plant.plant.price )).reduce((acc, price) => (acc + price), 0).toFixed(2)}
          </span>
 </div>
   )

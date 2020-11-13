@@ -15,6 +15,7 @@ import Account from './Components/Account'
 import EmptyCart from './Components/EmptyCart'
 import About from './Components/About'
 import Footer from './Components/Footer'
+import PayPal from './Components/PayPal'
 
 const URL = 'https://iplant-backend.herokuapp.com'
 
@@ -151,6 +152,7 @@ class App extends React.Component {
                     <Route exact path='/account' component={() => this.state.userid ? <Account handleSubmit={this.handleSubmit} user={this.state.user}/> : <Redirect to="/login" push={true} />} />
                     <Route exact path='/logout' component={() => this.handleLogout()} />
                     <Route exact path='/about-us' component={About} />
+                    <Route exact path='/paypal' component={() =><PayPal clearCart={this.clearCart} />} />
                     <Route component={NotFound} />
                     </Switch>
                   </div>

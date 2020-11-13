@@ -11,13 +11,13 @@ import PayPal from './PayPal'
 class Cart extends React.Component {
 
   // state ={
-  //   qty: 1,
+  //   quantity: 1,
   // }
 
   // getQty = e =>{
-  //   this.setState({
-  //     qty: e.target.value,
-  //   })
+  //  this.setState({
+  //   quantity: parseInt(e.target.value)
+  //  })
   // }
 
 
@@ -39,7 +39,7 @@ class Cart extends React.Component {
                 <div className='cart-item-value'>
                   <span className='cart-item-price'>${plant.plant.price.toFixed(2)}</span>
                   {/* <span className='cart-item-qty'>Qty:
-                    <select onChange={this.getQty} className='cart-item-qty-select' name='qty' value={this.state.getQty}>
+                    <select onChange={this.getQty} className='cart-item-qty-select' name='qty' value={plant.plant.quantity =this.state.quantity}>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -57,7 +57,7 @@ class Cart extends React.Component {
         </div>
         
 
-        <CartTotal cart={cart}/>
+        <CartTotal cart={cart} />
 
         
 
