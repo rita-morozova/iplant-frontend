@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import './Cart.css'
 import CartTotal from './CartTotal'
 import {Icon, Button} from 'semantic-ui-react'
-
+import PayPal from './PayPal'
 
 
 
@@ -65,6 +65,9 @@ class Cart extends React.Component {
                 Checkout
                </Button>
           </Link>
+          <br />
+          <br />
+          <PayPal />
       </div>
     )
   }
