@@ -27,7 +27,8 @@ class Cart extends React.Component {
     return(
       <div>
         <br />
-        
+        <Button className="mx-auto" floated='right' secondary onClick={this.props.clearCart} style={{margin: '1.5rem'}}>Clear Cart</Button>
+        <br />
         <h2> Your Cart</h2>
         <div>
           {cart.map(plant => (
@@ -57,17 +58,19 @@ class Cart extends React.Component {
         
 
         <CartTotal cart={cart}/>
-       
-        <Button className='clear' secondary onClick={this.props.clearCart}>Clear Cart</Button>
+
+        
 
          <Link to={'/checkout'} total={<CartTotal cart={cart} />}>
-              <Button color='olive' type='button' className='cart-checkout-button'> 
+              <Button className="mx-auto" color='olive' type='button' className='cart-checkout-button' style={{margin: '1.5rem', width: '250px'}} > 
                 Checkout
                </Button>
           </Link>
-          <br />
-          <br />
-          <PayPal />
+
+          <PayPal  />
+       
+          
+         
       </div>
     )
   }

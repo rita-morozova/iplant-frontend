@@ -25,8 +25,12 @@ class PayPal extends React.Component {
         sandbox: 'AZEn-5QtFho49PUILH6xFWPK2bCEPtpWl7CaXHXiKfp9Fc4nuUlvjA1I53AuGxOKvj2h5Do-3OgxwR_E',
     }
 
+  
+
     return(
-      <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} />
+      <div className='paypal-btn' style={{margin: '1.5rem', textAlign: 'center'}}>
+      <PaypalExpressBtn env={env} client={client} currency={currency} total={total} onError={onError} onSuccess={onSuccess} onCancel={onCancel} style={{shape: 'rect', size: 'medium', margin: '1.5rem'}}  />
+      </div>
     )
   }
 }

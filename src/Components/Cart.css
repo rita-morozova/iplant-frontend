@@ -84,9 +84,10 @@ li {
   color: olive;
 }
 
-.clear{
-  /* float: right; */
-  flex: 0 0 auto;
-  margin: 2.5rem;
-}
 
+
+.paypal-btn{
+  float:left;
+  margin: 2.5rem;
+  padding: 0 0 0 1.5rem;
+}

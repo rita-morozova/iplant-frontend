@@ -34,7 +34,7 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavori
       {/* <button onClick={() => addToCart(chosenPlant)}>Add To Cart</button> */}
                     <br />
                     <br />
-                    <Button className='go-back-btn' color='olive' onClick={goBackToAllPlants}>Back To All Plants</Button>
+                    <Button className='go-back-btn' color='olive' onClick={goBackToAllPlants} style={{width: '200px'}}>Back To All Plants</Button>
                     <br />
                     <br />
         </Grid.Column>

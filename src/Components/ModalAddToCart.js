@@ -11,7 +11,7 @@ const ModalAddToCart = ({addToCart, chosenPlant}) => {
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
       size='mini'
-      trigger={<Button className='add-to-cart-btn' color='olive'>Add To Cart</Button>}>
+      trigger={<Button className='add-to-cart-btn' color='olive' style={{width: '200px'}}>Add To Cart</Button>}>
       <Modal.Content>
         <Modal.Description>
           1 Item Added To Your Cart
