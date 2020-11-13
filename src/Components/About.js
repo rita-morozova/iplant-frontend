@@ -1,8 +1,8 @@
 import React from 'react'
 import {Container, Button, Divider, Grid, Header,  Image, Segment, Embed} from 'semantic-ui-react'
-import decor from '../images/decor.jpg'
 import {Link} from 'react-router-dom'
 import map from '../images/map.png'
+import corner from '../images/corner.jpg'
 
 
 const About = () => {
@@ -10,7 +10,7 @@ const About = () => {
   return(
     <div>
       <Container>
-        <Segment style={{padding: '8em 0em'}} vertical>
+        <Segment style={{padding: '5em 0em'}} vertical>
           <Grid stackable verticalAlign='middle'>
             <Grid.Row>
               <Grid.Column width={8}>
@@ -32,11 +32,13 @@ const About = () => {
                  boardered
                  rounded
                  size='large'
-                 src={decor} />
+                 src={corner} />
                </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column textAlign='center'>
+                <br />
+                <br />
                 <Link to='/all-plants'>
                   <Button size='huge' color='olive'>Start Shopping</Button>
                   </Link>

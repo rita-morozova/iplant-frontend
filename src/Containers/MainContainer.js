@@ -4,7 +4,7 @@ import PlantDetails from '../Components/PlantDetails'
 import {Container} from 'semantic-ui-react'
 import SearchBar from '../Components/SearchBar'
 import Filter from '../Components/Filter'
-import FavoritesContainer from './FavoritesContainer'
+
 
 
 class MainContainer extends React.Component {

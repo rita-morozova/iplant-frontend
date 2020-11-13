@@ -1,6 +1,7 @@
 import React from 'react'
-import {Icon, Button, Image, Grid} from 'semantic-ui-react'
+import {Icon, Button, Image, Grid, Card} from 'semantic-ui-react'
 import ModalAddToCart from './ModalAddToCart'
+
 
 
 
@@ -18,11 +19,9 @@ const PlantDetails= ({chosenPlant, goBackToAllPlants, cart, addToCart, addFavori
   return(
     <Grid>
         <Grid.Column width={4}>
-          <Image src={chosenPlant.image} alt="Plant"/> 
+          <Image src={chosenPlant.image} alt="Plant" wrapped ui={false}/> 
           <br/ >
-          <div className="extra">
-            {extra}
-          </div>
+          <Card.Content> {extra}</Card.Content>  
         </Grid.Column>
         <Grid.Column width={9}>
         <h1> {chosenPlant.name}</h1>

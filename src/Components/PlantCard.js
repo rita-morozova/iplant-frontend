@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import React from 'react'
 import {Card, Icon, Image} from 'semantic-ui-react'
-import PlantDetails from './PlantDetails'
+import '../App.css'
 
 
 class PlantCard extends React.Component {
@@ -27,7 +27,7 @@ class PlantCard extends React.Component {
                   <Card.Description>${price}</Card.Description>
               </Card.Content>
               <br />
-              {this.props.removeFavorite ? <span onClick={() => this.props.removeFavorite(plant)}><Icon  color='red' name='heart'  /></span> : null}
+              {this.props.removeFavorite ? <span onClick={() => this.props.removeFavorite(plant)}><Icon className='overlay' color='red' name='heart' /></span> : null}
           </div>
           </Card>
          
