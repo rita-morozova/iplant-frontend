@@ -4,7 +4,7 @@ iPlant is an e-commerce plant shop.  User can look for plants, add plants to the
 [Project Demo]( https://youtu.be/gJ6-OvyNNwE )
 
 ## Technologies Used
-* Ruby on Rails API on the back end ([see the backend repo here](https://github.com/MullaN/iplant-backend))
+* Ruby on Rails API on the back end ([see the backend repo here](https://github.com/rita-morozova/iplant-backend))
 * React & Semantic UI on the front-end
 * Postgres DB
 
