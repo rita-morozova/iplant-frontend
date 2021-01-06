@@ -5,10 +5,9 @@ iPlant is an e-commerce plant shop. User can look for plants, add plants to thei
 [Project Demo](https://youtu.be/gJ6-OvyNNwE)
 
 ## Technologies Used
-
-- Ruby on Rails API on the back end ([see the backend repo here](https://github.com/MullaN/iplant-backend))
-- React & Semantic UI on the front-end
-- Postgres DB
+* Ruby on Rails API on the back end ([see the backend repo here](https://github.com/rita-morozova/iplant-backend))
+* React & Semantic UI on the front-end
+* PostgreSQL
 
 ## Setup
 
@@ -16,8 +15,8 @@ iPlant is an e-commerce plant shop. User can look for plants, add plants to thei
 2. Within your terminal, navigate to the iplant-frontend folder ('cd iplant-frontend')
 3. Run 'npm install' to install all dependencies for this project
 4. Run 'npm start' to start a server
-5. A new tab will open inside your browser. You don't need to install backend repo on your computer;
-   all databases are deployed on Heroku.
+5. A new tab will open in your browser. You don't need to install backend repo on your computer to run this app;
+all databases are deployed to Heroku.
 6. Sign up/in to the app first and then log-in to see the fully functional store.
 7. To make the PayPal sandbox button work, please visit (https://developer.paypal.com/docs/platforms/get-started/) to obtain your API credentials.
 
