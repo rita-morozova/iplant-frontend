@@ -3,7 +3,7 @@
   text-align: center;
 } */
 body {
-  margin:0;
+  margin: 0;
 }
 
 .App-header {
@@ -17,9 +17,8 @@ body {
   color: white;
 }
 
-
 .ui.borderless.menu {
-  background-color: #f8f8f8;;
+  background-color: #f8f8f8;
   box-shadow: none;
   flex-wrap: wrap;
   border: none;
@@ -48,10 +47,10 @@ body {
   flex-wrap: wrap;
 }
 
-.main-img{
+.main-img {
   width: 100%;
 }
 
-.ui.search{
+.ui.search {
   float: right;
 }

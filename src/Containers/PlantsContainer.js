@@ -1,47 +1,43 @@
-import React from 'react'
-import PlantCard from '../Components/PlantCard'
-import {Card} from 'semantic-ui-react'
+import React from "react";
+import PlantCard from "../Components/PlantCard";
+import { Card } from "semantic-ui-react";
 
+class PlantsContainer extends React.Component {
+  render() {
+    const { plants, selectPlant, filter } = this.props;
 
+    const filterPlants = () => {
+      if (filter === "none") {
+        return plants;
+      }
 
-class PlantsContainer extends React.Component{
+      if (filter === "beginners") {
+        return plants.filter((p) => p.easyToCare === true);
+      }
 
+      if (filter === "bloomingPlants") {
+        return plants.filter((p) => p.blooming === true);
+      }
 
-  render(){
-   const{plants, selectPlant, filter} = this.props
+      if (filter === "lowLight") {
+        return plants.filter((p) => p.lowLight === true);
+      }
 
-   const filterPlants = () => {
-    if(filter === 'none'){
-      return plants
-    }
+      if (filter === "brightLight") {
+        return plants.filter((p) => p.brightLight === true);
+      }
+    };
 
-    if(filter === 'beginners'){
-      return plants.filter(p => p.easyToCare === true)
-    }
-
-    if(filter==='bloomingPlants'){
-      return plants.filter(p => p.blooming === true)
-    }
-
-    if(filter==='lowLight'){
-      return plants.filter(p => p.lowLight === true)
-    }
-
-    if(filter==='brightLight'){
-      return plants.filter(p => p.brightLight === true)
-    }
-  }
- 
-    return(
+    return (
       <div>
-         <Card.Group itemsPerRow={3}>
-        {filterPlants().map(plant => (
-          <PlantCard  key={plant.id} plant={plant} selectPlant={selectPlant} />
-        ))}
-         </Card.Group>
+        <Card.Group itemsPerRow={3}>
+          {filterPlants().map((plant) => (
+            <PlantCard key={plant.id} plant={plant} selectPlant={selectPlant} />
+          ))}
+        </Card.Group>
       </div>
-    )
+    );
   }
 }
 
-export default PlantsContainer
+export default PlantsContainer;

@@ -1,8 +1,8 @@
-import React from 'react'
-import { Button, Modal } from 'semantic-ui-react'
+import React from "react";
+import { Button, Modal } from "semantic-ui-react";
 
-const ModalAddToCart = ({addToCart, chosenPlant}) => {
-  const [open, setOpen] = React.useState(false)
+const ModalAddToCart = ({ addToCart, chosenPlant }) => {
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Modal
@@ -10,18 +10,30 @@ const ModalAddToCart = ({addToCart, chosenPlant}) => {
       open={open}
       onClose={() => setOpen(false)}
       onOpen={() => setOpen(true)}
-      size='mini'
-      trigger={<Button className='add-to-cart-btn' color='olive' style={{width: '200px'}}>Add To Cart</Button>}>
+      size="mini"
+      trigger={
+        <Button
+          className="add-to-cart-btn"
+          color="olive"
+          style={{ width: "200px" }}
+        >
+          Add To Cart
+        </Button>
+      }
+    >
       <Modal.Content>
-        <Modal.Description>
-          1 Item Added To Your Cart
-        </Modal.Description>
+        <Modal.Description>1 Item Added To Your Cart</Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => setOpen(false)} onClick={() => addToCart(chosenPlant)}>OK</Button>
+        <Button
+          onClick={() => setOpen(false)}
+          onClick={() => addToCart(chosenPlant)}
+        >
+          OK
+        </Button>
       </Modal.Actions>
     </Modal>
-  )
-}
+  );
+};
 
-export default ModalAddToCart
+export default ModalAddToCart;
