@@ -23,7 +23,7 @@ all databases are deployed to Heroku.
 ## Main Features
 
 ### Main Page
-![Main](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757910/Screen_Shot_2021-02-07_at_8.17.54_PM_izeqlj.png)
+![Main](/home.png)
 
 
 
