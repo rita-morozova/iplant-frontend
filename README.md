@@ -23,9 +23,12 @@ all databases are deployed to Heroku.
 ## Main Features
 
 ### Main Page
-![Main](/home.png)
+![Main](public/home.png)
 
+![Main_1](https://res.cloudinary.com/diexi8g0j/image/upload/v1612756995/Screen_Shot_2021-02-07_at_7.52.00_PM_x9nlwu.png)
 
+### About Us
+![About](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757113/Screen_Shot_2021-02-07_at_7.52.46_PM_yzjz7g.png)
 
 ### View All Plants or Search
 
