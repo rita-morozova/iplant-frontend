@@ -20,9 +20,31 @@ all databases are deployed to Heroku.
 6. Sign up/in to the app first and then log-in to see the fully functional store.
 7. To make the PayPal sandbox button work, please visit (https://developer.paypal.com/docs/platforms/get-started/) to obtain your API credentials.
 
-## Contributing
+## Main Features
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+### Home Page
+
+![Home](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757043/Screen_Shot_2021-02-07_at_8.03.48_PM_znzs36.png)
+
+![Home_1](https://res.cloudinary.com/diexi8g0j/image/upload/v1612756995/Screen_Shot_2021-02-07_at_7.52.00_PM_x9nlwu.png)
+
+### About Us
+
+![About](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757113/Screen_Shot_2021-02-07_at_7.52.46_PM_yzjz7g.png)
+
+### View All Plants or Search
+
+![All_plants](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757123/Screen_Shot_2021-02-07_at_7.54.19_PM_bwfcek.png)
+
+![Search](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757068/Screen_Shot_2021-02-07_at_7.54.43_PM_slnhyn.png)
+
+### Plant Information
+
+![Information](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757083/Screen_Shot_2021-02-07_at_7.55.04_PM_x2jrtw.png)
+
+### Cart
+
+![Cart](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757094/Screen_Shot_2021-02-07_at_7.56.52_PM_s1thd4.png)
 
 ## License
 
