@@ -22,15 +22,10 @@ all databases are deployed to Heroku.
 
 ## Main Features
 
-### Home Page
+### Main Page
+![Main](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757910/Screen_Shot_2021-02-07_at_8.17.54_PM_izeqlj.png)
 
-![Home](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757043/Screen_Shot_2021-02-07_at_8.03.48_PM_znzs36.png)
 
-![Home_1](https://res.cloudinary.com/diexi8g0j/image/upload/v1612756995/Screen_Shot_2021-02-07_at_7.52.00_PM_x9nlwu.png)
-
-### About Us
-
-![About](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757113/Screen_Shot_2021-02-07_at_7.52.46_PM_yzjz7g.png)
 
 ### View All Plants or Search
 
@@ -45,6 +40,8 @@ all databases are deployed to Heroku.
 ### Cart
 
 ![Cart](https://res.cloudinary.com/diexi8g0j/image/upload/v1612757094/Screen_Shot_2021-02-07_at_7.56.52_PM_s1thd4.png)
+
+
 
 ## License
 
