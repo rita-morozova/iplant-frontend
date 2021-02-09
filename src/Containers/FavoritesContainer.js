@@ -1,25 +1,25 @@
 import React from "react";
 import PlantCard from "../Components/PlantCard";
-import { Container, Card, Image } from "semantic-ui-react";
+import { Container, Card, } from "semantic-ui-react";
 
-class FavoritesContainer extends React.Component {
-  render() {
+const FavoritesContainer = props => {
+  
     return (
       <Container textAlign="center">
         <br />
         <h1>These plants need a new home!</h1>
-        <div class="ui divider"></div>
+        <div className="ui divider"></div>
         <Card.Group itemsPerRow={3}>
-          {this.props.favorites.map((plant) => (
+          {props.favorites.map((plant) => (
             <PlantCard
+              key={plant.id}
               plant={plant}
-              removeFavorite={this.props.removeFavorite}
+              removeFavorite={props.removeFavorite}
             />
           ))}
         </Card.Group>
       </Container>
     );
-  }
 }
 
 export default FavoritesContainer;

@@ -1,8 +1,8 @@
 import React from "react";
 import PaypalExpressBtn from "react-paypal-express-checkout";
 
-class PayPal extends React.Component {
-  render() {
+const PayPal = () => {
+  
     const onSuccess = (payment) => {
       console.log("The payment was succeeded!", payment);
     };
@@ -41,7 +41,6 @@ class PayPal extends React.Component {
         />
       </div>
     );
-  }
 }
 
 export default PayPal;

@@ -11,8 +11,8 @@ const link = {
   color: "black",
 };
 
-class Navbar extends React.Component {
-  render() {
+const Navbar = ({userid}) => {
+  
     return (
       <div>
         <Grid padded className="tablet computer only">
@@ -40,7 +40,7 @@ class Navbar extends React.Component {
             >
               About Us
             </NavLink>
-            {this.props.userid ? (
+            {userid ? (
               <>
                 <NavLink
                   to="/all-plants"
@@ -118,7 +118,6 @@ class Navbar extends React.Component {
         </Grid>
       </div>
     );
-  }
 }
 
 export default Navbar;

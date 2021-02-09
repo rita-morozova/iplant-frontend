@@ -1,7 +1,7 @@
 import React from "react";
 import ModalPurchase from "./ModalPurchase";
 import { Form, Select } from "semantic-ui-react";
-import PayPal from "./PayPal";
+
 
 class Checkout extends React.Component {
   state = {

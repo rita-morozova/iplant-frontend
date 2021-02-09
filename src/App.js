@@ -33,11 +33,11 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    // fetch('https://iplant-backend.herokuapp.com/users/1')
-    // .then(resp => resp.json())
-    // .then(userData => {
-    //   this.setState({cart: userData.transactions, favorites: userData.favorites})
-    // })
+    fetch('https://iplant-backend.herokuapp.com/users/1')
+    .then(resp => resp.json())
+    .then(userData => {
+      this.setState({cart: userData.transactions, favorites: userData.favorites})
+    })
   }
 
   addToCart = (plant) => {

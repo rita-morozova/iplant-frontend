@@ -2,9 +2,8 @@ import React from "react";
 import PlantCard from "../Components/PlantCard";
 import { Card } from "semantic-ui-react";
 
-class PlantsContainer extends React.Component {
-  render() {
-    const { plants, selectPlant, filter } = this.props;
+const PlantsContainer = ({ plants, selectPlant, filter}) => {
+
 
     const filterPlants = () => {
       if (filter === "none") {
@@ -37,7 +36,6 @@ class PlantsContainer extends React.Component {
         </Card.Group>
       </div>
     );
-  }
 }
 
 export default PlantsContainer;

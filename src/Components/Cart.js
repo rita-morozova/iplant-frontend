@@ -5,19 +5,9 @@ import CartTotal from "./CartTotal";
 import { Icon, Button } from "semantic-ui-react";
 import PayPal from "./PayPal";
 
-class Cart extends React.Component {
-  // state ={
-  //   quantity: 1,
-  // }
+const Cart = ({ cart, clearCart, removeFromCart }) => {
+  
 
-  // getQty = e =>{
-  //  this.setState({
-  //   quantity: parseInt(e.target.value)
-  //  })
-  // }
-
-  render() {
-    const { cart } = this.props;
     return (
       <div>
         <br />
@@ -25,7 +15,7 @@ class Cart extends React.Component {
           className="mx-auto"
           floated="right"
           secondary
-          onClick={this.props.clearCart}
+          onClick={clearCart}
           style={{ margin: "1.5rem" }}
         >
           Clear Cart
@@ -46,21 +36,12 @@ class Cart extends React.Component {
                   <span className="cart-item-price">
                     ${plant.plant.price.toFixed(2)}
                   </span>
-                  {/* <span className='cart-item-qty'>Qty:
-                    <select onChange={this.getQty} className='cart-item-qty-select' name='qty' value={plant.plant.quantity =this.state.quantity}>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                        <option value='3'>3</option>
-                        <option value='4'>4</option>
-                        <option value='5'>5</option>
-                      </select>
-                  </span> */}
                 </div>
               </div>
               <span
                 className="cart-item-delete"
                 onClick={() => {
-                  this.props.removeFromCart(plant.plant);
+                  removeFromCart(plant.plant);
                 }}
               >
                 <Icon name="trash alternate outline" size="small" />
@@ -86,7 +67,6 @@ class Cart extends React.Component {
         <PayPal />
       </div>
     );
-  }
 }
 
 export default Cart;
