@@ -11,7 +11,7 @@ const PlantCard = ({ plant, selectPlant, removeFavorite }) => {
     };
 
     return (
-      <div>
+     <div className="plant-card">
       <Card>
         <div key={plant.id}>
           <div className="image" onClick={handleClick}>
@@ -29,7 +29,7 @@ const PlantCard = ({ plant, selectPlant, removeFavorite }) => {
           ) : null}
         </div>
       </Card>
-      </div>
+    </div>
     );
 }
 

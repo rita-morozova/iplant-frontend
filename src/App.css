@@ -50,3 +50,7 @@ body {
 .ui.search {
   float: right;
 }
+
+.plant-card{
+  margin: 20px;
+}
