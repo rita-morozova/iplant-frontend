@@ -54,10 +54,9 @@ const Cart = ({ cart, clearCart, removeFromCart }) => {
 
         <Link to={"/checkout"} total={<CartTotal />}>
           <Button
-            className="mx-auto"
             color="olive"
             type="button"
-            className="cart-checkout"
+            className="cart-checkout-button mx-auto"
             style={{ margin: "1.5rem", width: "250px" }}
           >
             Checkout
