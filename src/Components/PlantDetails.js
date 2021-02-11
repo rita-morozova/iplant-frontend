@@ -18,13 +18,14 @@ const PlantDetails = ({
   );
 
   return (
+    <div>
     <Grid>
-      <Grid.Column width={4}>
+      <Grid.Column mobile={16} computer={4}>
         <Image src={chosenPlant.image} alt="Plant" wrapped ui={false} />
         <br />
         <Card.Content> {extra}</Card.Content>
       </Grid.Column>
-      <Grid.Column width={9}>
+      <Grid.Column mobile={16} computer={9}>
         <h1> {chosenPlant.name}</h1>
         <h2>${price}</h2>
         <p>{chosenPlant.description}</p>
@@ -36,7 +37,6 @@ const PlantDetails = ({
         </h4>
         <br />
         <ModalAddToCart addToCart={addToCart} chosenPlant={chosenPlant} />
-        {/* <button onClick={() => addToCart(chosenPlant)}>Add To Cart</button> */}
         <br />
         <br />
         <Button
@@ -51,6 +51,7 @@ const PlantDetails = ({
         <br />
       </Grid.Column>
     </Grid>
+    </div>
   );
 };
 

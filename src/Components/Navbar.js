@@ -15,7 +15,7 @@ const Navbar = ({userid}) => {
   
     return (
       <div>
-        <Grid padded className="tablet computer only">
+        <Grid padded className="tablet mobile computer only">
           <Menu borderless fluid size="large">
             <Link to="/">
               <Menu.Item header>

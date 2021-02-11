@@ -167,6 +167,9 @@ class App extends React.Component {
                     cart={cart}
                     addFavorite={this.addFavorite}
                     addToCart={this.addToCart}
+                    favorites={this.state.favorites.map(
+                      (favorite) => favorite.plant
+                    )}
                   />
                 )}
               />

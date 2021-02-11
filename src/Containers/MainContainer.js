@@ -24,8 +24,8 @@ class MainContainer extends React.Component {
   }
 
   selectPlant = (id) => {
-    this.setState({
-      chosenPlant: this.state.plants.find((plant) => plant.id === id),
+      this.setState({
+       chosenPlant: this.state.plants.find((plant) => plant.id === id),
     });
   };
 
