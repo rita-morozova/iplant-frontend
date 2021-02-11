@@ -57,7 +57,7 @@ const Cart = ({ cart, clearCart, removeFromCart }) => {
             className="mx-auto"
             color="olive"
             type="button"
-            className="cart-checkout-button"
+            className="cart-checkout"
             style={{ margin: "1.5rem", width: "250px" }}
           >
             Checkout

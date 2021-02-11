@@ -4,6 +4,11 @@ import { Button, Modal } from "semantic-ui-react";
 const ModalAddToCart = ({ addToCart, chosenPlant }) => {
   const [open, setOpen] = React.useState(false);
 
+  const handleClick = () => {
+    setOpen(false)
+    addToCart(chosenPlant)
+  }
+
   return (
     <Modal
       centered={false}
@@ -26,8 +31,7 @@ const ModalAddToCart = ({ addToCart, chosenPlant }) => {
       </Modal.Content>
       <Modal.Actions>
         <Button
-          onClick={() => setOpen(false)}
-          onClick={() => addToCart(chosenPlant)}
+          onClick={handleClick}
         >
           OK
         </Button>

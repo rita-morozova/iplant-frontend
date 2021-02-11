@@ -4,6 +4,11 @@ import { Button, Modal, Grid } from "semantic-ui-react";
 const ModalPurchase = ({ purchased }) => {
   const [open, setOpen] = React.useState(false);
 
+  const handleClick = () => {
+    setOpen(false)
+    purchased()
+  }
+
   return (
     <Modal
       centered={false}
@@ -28,7 +33,7 @@ const ModalPurchase = ({ purchased }) => {
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => setOpen(false)} onClick={purchased}>
+        <Button onClick={handleClick}>
           OK
         </Button>
       </Modal.Actions>
