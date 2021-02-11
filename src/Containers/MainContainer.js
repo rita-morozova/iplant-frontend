@@ -58,7 +58,7 @@ class MainContainer extends React.Component {
         <Container textAlign="center">
           <br />
           <h2 className="main-header">ALL PLANTS </h2>
-          <div class="ui divider"></div>
+          <div className="ui divider"></div>
           <SearchBar onChange={this.handleSearch} />
           <br />
           <Filter selectFilter={this.selectFilter} />

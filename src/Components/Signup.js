@@ -7,7 +7,7 @@ class Signup extends Component {
     email: "",
     name: "",
     password: "",
-    ["password_confirmation"]: "",
+    password_confirmation: "",
   };
 
   handleChange = (event) => {
@@ -68,12 +68,10 @@ class Signup extends Component {
                   placeholder="Confirm Password"
                   type="password"
                   name="password_confirmation"
-                  value={this.state["password_confirmation"]}
+                  value={this.state.password_confirmation}
                   onChange={this.handleChange}
                 />
                 <br />
-
-                {/* <input type='submit' /> */}
                 <Button color="olive" fluid size="large">
                   Sign Up
                 </Button>

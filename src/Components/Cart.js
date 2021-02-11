@@ -52,7 +52,7 @@ const Cart = ({ cart, clearCart, removeFromCart }) => {
 
         <CartTotal cart={cart} />
 
-        <Link to={"/checkout"} total={<CartTotal cart={cart} />}>
+        <Link to={"/checkout"} total={<CartTotal />}>
           <Button
             className="mx-auto"
             color="olive"
